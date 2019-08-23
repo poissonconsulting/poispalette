@@ -1,4 +1,4 @@
 library(testthat)
-library(pkgtemplate)
+library(poispalette)
 
-test_check("pkgtemplate")
+test_check("poispalette")
