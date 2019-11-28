@@ -1,18 +1,18 @@
-#' colours
+#' poisson colours
 #' 
-#' @param
+#' @param ... Character names of Poisson colours
 #' @return a named vector of hex colours
 #' @export
 #'
 #' @examples
-#' colours()
+#' pois_cols()
 pois_cols <- function(...) {
   cols <- c(...)
   
   if (is.null(cols))
-    return (colours)
+    return (pois_colours)
   
-  colours[cols]
+  poispalette::pois_colours[cols]
 }
 
 #' Return function to interpolate a poisson color palette
@@ -35,7 +35,7 @@ pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
   
   if (reverse) pal <- rev(pal)
   
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 
 #' Color scale constructor for poisson colors
@@ -50,9 +50,9 @@ scale_colour_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, 
   pal <- pois_pal(palette = palette, reverse = reverse)
   
   if (discrete) {
-    discrete_scale("colour", paste0("pos_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("colour", paste0("pos_", palette), palette = pal, ...)
   } else {
-    scale_color_gradientn(colours = pal(256), ...)
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
 
@@ -68,8 +68,15 @@ scale_fill_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ..
   pal <- pois_pal(palette = palette, reverse = reverse)
   
   if (discrete) {
-    discrete_scale("fill", paste0("pos_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("pos_", palette), palette = pal, ...)
   } else {
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
+
+#' Poisson Colours
+#'
+#' @format A named character vector of Poisson Colours as hex codes
+#' @examples
+#' pois_colours
+"pois_colours"

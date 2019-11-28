@@ -1,6 +1,6 @@
 library(poispkgs)
 
-colours <- 
+pois_colours <- 
       c("black" = "#000000",
         "red" = "#ff2500",
         "blue" = "#0433ff",
@@ -13,4 +13,4 @@ colours <-
         "orange3" = "#cd8500",
         "purple" = "#a034f0")
 
-usethis::use_data(colours)
+usethis::use_data(pois_colours, overwrite = TRUE)
