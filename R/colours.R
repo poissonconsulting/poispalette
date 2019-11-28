@@ -23,15 +23,7 @@ pois_cols <- function(...) {
 #'
 pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
   
-  pois_palettes <- list(
-  cool = c("blue", "green"),
-  hot = c("orange3", "red"),
-  p1 = c("black", "red", "blue", "green4", "orange3", "slategray"),
-  p2 = c("black", "red", "blue", "green4", "orange3","slategray", "purple"),
-  p3 = c("black", "red", "blue", "green4", "brown", "slategray", "orchid",
-          "lightskyblue","aquamarine4", "orange3"))
-  
-  pal <- pois_palettes[[palette]]
+  pal <- poispalette::pois_palettes[[palette]]
   
   if (reverse) pal <- rev(pal)
   
@@ -80,3 +72,10 @@ scale_fill_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ..
 #' @examples
 #' pois_colours
 "pois_colours"
+
+#' Poisson Palettes
+#'
+#' @format A list of named character vectors of Poisson colour palettes
+#' @examples
+#' pois_palettes
+"pois_palettes"
