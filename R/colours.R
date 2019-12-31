@@ -1,16 +1,18 @@
 #' poisson colours
 #' 
-#' @param ... Character names of Poisson colours
+#' @param cols Character names of Poisson colours
 #' @return a named vector of hex colours
 #' @export
 #'
 #' @examples
 #' pois_cols()
-pois_cols <- function(...) {
-  cols <- c(...)
+pois_cols <- function(cols = NULL) {
   
   if (is.null(cols))
     return (pois_colours)
+  
+  chk::chk_s3_class(cols, "character")
+  if(!all(cols %in% names(pois_colours)) %in% pois_colours) err("One or more values of cols not in pois_colours")
   
   poispalette::pois_colours[cols]
 }
@@ -22,9 +24,12 @@ pois_cols <- function(...) {
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
 pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
+
+  chk::chk_s3_class(palette, "character")
+  if(!length(palette) == 1L) err("Value of palette must be length 1")
+  if(!palette %in% names(pois_palettes)) err("Value of palette not found in pois_palettes")
   
   pal <- poispalette::pois_palettes[[palette]]
-  
   if (reverse) pal <- rev(pal)
   
   grDevices::colorRampPalette(pal, ...)
@@ -39,11 +44,14 @@ pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 scale_colour_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ...) {
+  chk::chk_flag(discrete)
+  chk::chk_flag(reverse)
+  
   pal <- pois_pal(palette = palette, reverse = reverse)
   
   if (discrete) {
     ggplot2::discrete_scale("colour", paste0("pos_", palette), palette = pal, ...)
-  } else {
+  } else { 
     ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
@@ -57,6 +65,9 @@ scale_colour_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, 
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 scale_fill_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ...) {
+  chk::chk_flag(discrete)
+  chk::chk_flag(reverse)
+  
   pal <- pois_pal(palette = palette, reverse = reverse)
   
   if (discrete) {
