@@ -9,10 +9,10 @@ test_that("pois_cols works",{
 })
 
 test_that("pois_pal works",{
-  palette <- pois_pal("cool")(4)
-  expect_identical(palette, c("#0000FF", "#0055AA", "#00AA55", "#00FF00"))
+  palette <- pois_pal()(4)
+  expect_identical(palette, c("#000000", "#572EA9", "#448900", "#707F90"))
   
-  expect_error(pois_pal(palette = "not a palatte"), "Value of palette not found in pois_palettes")
+  expect_error(pois_pal(palette = "not a palatte"), "Name of palette not found in pois_palettes")
   expect_error(pois_pal(palette = c("too", "many")), "Value of palette must be length 1")
 })
 
