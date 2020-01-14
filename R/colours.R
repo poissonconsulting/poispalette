@@ -6,13 +6,12 @@
 #'
 #' @examples
 #' pois_cols()
-pois_cols <- function(cols = NULL) {
-  
+  pois_cols <- function(cols = NULL){  
   if (is.null(cols))
     return (pois_colours)
   
   chk::chk_s3_class(cols, "character")
-  if(!all(cols %in% names(pois_colours)) %in% pois_colours) err("One or more values of cols not in pois_colours")
+  if(!all(cols %in% names(pois_colours))) err("One or more values of cols not in pois_colours")
   
   poispalette::pois_colours[cols]
 }
@@ -23,13 +22,13 @@ pois_cols <- function(cols = NULL) {
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
-pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
+pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 
   chk::chk_s3_class(palette, "character")
   if(!length(palette) == 1L) err("Value of palette must be length 1")
-  if(!palette %in% names(pois_palettes)) err("Value of palette not found in pois_palettes")
+  if(!palette %in% names(pois_palettes)) err("Name of palette not found in pois_palettes")
   
-  pal <- poispalette::pois_palettes[[palette]]
+  pal <- poispalette::pois_cols(pois_palettes[[palette]])
   if (reverse) pal <- rev(pal)
   
   grDevices::colorRampPalette(pal, ...)
@@ -43,7 +42,7 @@ pois_pal <- function(palette = "p1", reverse = FALSE, ...) {
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-scale_colour_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ...) {
+scale_colour_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
   
@@ -64,7 +63,7 @@ scale_colour_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, 
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-scale_fill_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
   
@@ -86,7 +85,7 @@ scale_fill_pois <- function(palette = "p1", discrete = TRUE, reverse = FALSE, ..
 
 #' Poisson Palettes
 #'
-#' @format A list of named character vectors of Poisson colour palettes
+#' @format A list of character vectors of Poisson colour palettes
 #' @examples
 #' pois_palettes
 "pois_palettes"
