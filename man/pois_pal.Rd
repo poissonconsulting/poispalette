@@ -4,7 +4,7 @@
 \alias{pois_pal}
 \title{Return function to interpolate a poisson color palette}
 \usage{
-pois_pal(palette = "p1", reverse = FALSE, ...)
+pois_pal(palette = "legacy1", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}

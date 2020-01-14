@@ -4,10 +4,10 @@
 \alias{pois_cols}
 \title{poisson colours}
 \usage{
-pois_cols(...)
+pois_cols(cols = NULL)
 }
 \arguments{
-\item{...}{Character names of Poisson colours}
+\item{cols}{Character names of Poisson colours}
 }
 \value{
 a named vector of hex colours

@@ -4,7 +4,7 @@
 \alias{scale_colour_pois}
 \title{Color scale constructor for poisson colors}
 \usage{
-scale_colour_pois(palette = "p1", discrete = TRUE, reverse = FALSE, ...)
+scale_colour_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}

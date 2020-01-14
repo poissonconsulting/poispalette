@@ -4,7 +4,7 @@
 \name{pois_palettes}
 \alias{pois_palettes}
 \title{Poisson Palettes}
-\format{A list of named character vectors of Poisson colour palettes}
+\format{A list of character vectors of Poisson colour palettes}
 \usage{
 pois_palettes
 }

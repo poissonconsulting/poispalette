@@ -6,7 +6,7 @@
 \alias{poispalette-package}
 \title{poispalette: What the Package Does (One Line, Title Case)}
 \description{
-What the package does (one paragraph).
+An R package for Poisson Consulting colour palettes.
 }
 \seealso{
 Useful links:
