@@ -4,14 +4,13 @@
 \name{pois_colours}
 \alias{pois_colours}
 \title{Poisson Colours}
-\format{A named character vector of Poisson Colours as hex codes}
+\format{An object of class \code{character} of length 29.}
 \usage{
 pois_colours
 }
 \description{
-Poisson Colours
-}
-\examples{
-pois_colours
+@format A named character vector of Poisson Colours as hex codes
+ @examples 
+ .pois_colours
 }
 \keyword{datasets}

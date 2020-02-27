@@ -2,14 +2,14 @@
 % Please edit documentation in R/colours.R
 \name{scale_fill_pois}
 \alias{scale_fill_pois}
-\title{Fill scale constructor for poisson colors}
+\title{Fill scale constructor for poisson colours}
 \usage{
 scale_fill_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
 
-\item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
+\item{discrete}{Boolean indicating whether colour aesthetic is discrete or not}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
@@ -17,5 +17,5 @@ scale_fill_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
 scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE}
 }
 \description{
-Fill scale constructor for poisson colors
+Fill scale constructor for poisson colours
 }

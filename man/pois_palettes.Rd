@@ -4,14 +4,13 @@
 \name{pois_palettes}
 \alias{pois_palettes}
 \title{Poisson Palettes}
-\format{A list of character vectors of Poisson colour palettes}
+\format{An object of class \code{list} of length 6.}
 \usage{
 pois_palettes
 }
 \description{
-Poisson Palettes
-}
-\examples{
-pois_palettes
+@format A list of character vectors of Poisson colour palettes
+ @examples 
+ .pois_palettes
 }
 \keyword{datasets}

@@ -2,14 +2,14 @@
 % Please edit documentation in R/colours.R
 \name{scale_colour_pois}
 \alias{scale_colour_pois}
-\title{Color scale constructor for poisson colors}
+\title{colour scale constructor for poisson colours}
 \usage{
-scale_colour_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
+scale_colour_pois(palette = "colours", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
 
-\item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
+\item{discrete}{Boolean indicating whether colour aesthetic is discrete or not}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
@@ -17,5 +17,5 @@ scale_colour_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
 scale_color_gradientn(), used respectively when discrete is TRUE or FALSE}
 }
 \description{
-Color scale constructor for poisson colors
+colour scale constructor for poisson colours
 }

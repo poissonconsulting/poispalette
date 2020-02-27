@@ -16,11 +16,11 @@
   .pois_colours[cols]
 }
 
-#' Return function to interpolate a poisson color palette
+#' Return function to interpolate a poisson colour palette
 #'
 #' @param palette Character name of palette in pois_palettes
 #' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments to pass to colorRampPalette()
+#' @param ... Additional arguments to pass to colourRampPalette()
 #'
 pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 
@@ -34,15 +34,15 @@ pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
   grDevices::colorRampPalette(pal, ...)
 }
 
-#' Color scale constructor for poisson colors
+#' colour scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
-#' @param discrete Boolean indicating whether color aesthetic is discrete or not
+#' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-scale_colour_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...) {
+scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
   
@@ -55,10 +55,10 @@ scale_colour_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FA
   }
 }
 
-#' Fill scale constructor for poisson colors
+#' Fill scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
-#' @param discrete Boolean indicating whether color aesthetic is discrete or not
+#' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
@@ -77,15 +77,15 @@ scale_fill_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALS
 }
 
 #' Poisson Colours
-#'
-#' @format A named character vector of Poisson Colours as hex codes
-#' @examples
-#' .pois_colours
-".pois_colours"
+#' 
+#'  @format A named character vector of Poisson Colours as hex codes
+#'  @examples 
+#'  .pois_colours
+"pois_colours"
 
 #' Poisson Palettes
-#'
-#' @format A list of character vectors of Poisson colour palettes
-#' @examples
-#' .pois_palettes
-".pois_palettes"
+#' 
+#'  @format A list of character vectors of Poisson colour palettes
+#'  @examples 
+#'  .pois_palettes
+"pois_palettes"

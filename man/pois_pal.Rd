@@ -2,7 +2,7 @@
 % Please edit documentation in R/colours.R
 \name{pois_pal}
 \alias{pois_pal}
-\title{Return function to interpolate a poisson color palette}
+\title{Return function to interpolate a poisson colour palette}
 \usage{
 pois_pal(palette = "legacy1", reverse = FALSE, ...)
 }
@@ -11,8 +11,8 @@ pois_pal(palette = "legacy1", reverse = FALSE, ...)
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
-\item{...}{Additional arguments to pass to colorRampPalette()}
+\item{...}{Additional arguments to pass to colourRampPalette()}
 }
 \description{
-Return function to interpolate a poisson color palette
+Return function to interpolate a poisson colour palette
 }

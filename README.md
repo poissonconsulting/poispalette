@@ -48,6 +48,17 @@ install.packages("poispalette")
 
 ## Demonstration
 
+``` r
+library(ggplot2)
+library(datasets)
+
+
+# data <- datasets::iris
+# ggplot(data, aes(x = Sepal.Length,y = Sepal.Width, colour = Species)) +
+#   geom_point(size = 4) +
+#   scale_colour_pois(pal = "new_colours")
+```
+
 ## Contribution
 
 Please report any
