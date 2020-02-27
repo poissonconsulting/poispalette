@@ -8,12 +8,12 @@
 #' pois_cols()
   pois_cols <- function(cols = NULL){  
   if (is.null(cols))
-    return (pois_colours)
+    return (.pois_colours)
   
   chk::chk_s3_class(cols, "character")
-  if(!all(cols %in% names(pois_colours))) err("One or more values of cols not in pois_colours")
+  if(!all(cols %in% names(.pois_colours))) err("One or more values of cols not in pois_colours")
   
-  poispalette::pois_colours[cols]
+  .pois_colours[cols]
 }
 
 #' Return function to interpolate a poisson color palette
@@ -26,9 +26,9 @@ pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 
   chk::chk_s3_class(palette, "character")
   if(!length(palette) == 1L) err("Value of palette must be length 1")
-  if(!palette %in% names(pois_palettes)) err("Name of palette not found in pois_palettes")
+  if(!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
   
-  pal <- poispalette::pois_cols(pois_palettes[[palette]])
+  pal <- pois_cols(.pois_palettes[[palette]])
   if (reverse) pal <- rev(pal)
   
   grDevices::colorRampPalette(pal, ...)
@@ -80,12 +80,12 @@ scale_fill_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALS
 #'
 #' @format A named character vector of Poisson Colours as hex codes
 #' @examples
-#' pois_colours
-"pois_colours"
+#' .pois_colours
+".pois_colours"
 
 #' Poisson Palettes
 #'
 #' @format A list of character vectors of Poisson colour palettes
 #' @examples
-#' pois_palettes
-"pois_palettes"
+#' .pois_palettes
+".pois_palettes"
