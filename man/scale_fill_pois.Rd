@@ -4,7 +4,7 @@
 \alias{scale_fill_pois}
 \title{Fill scale constructor for poisson colours}
 \usage{
-scale_fill_pois(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...)
+scale_fill_pois(palette = "colour", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}

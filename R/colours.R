@@ -53,6 +53,7 @@ scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FA
   } else { 
     ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
+  
 }
 
 #' Fill scale constructor for poisson colours
@@ -63,7 +64,7 @@ scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FA
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-scale_fill_pois <- function(palette = "legacy1", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_pois <- function(palette = "colour", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
   
