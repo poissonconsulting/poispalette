@@ -2,7 +2,7 @@ context("colours")
 
 test_that("pois_cols works",{
   colours_fun <- pois_cols()[1:2]
-  colours_data <- poispalette::pois_colours[1:2]
+  colours_data <- poispalette:::.pois_colours[1:2]
   expect_identical(colours_fun, colours_data)
   
   expect_error(pois_cols(cols = "not a colour"), "One or more values of cols not in pois_colours")

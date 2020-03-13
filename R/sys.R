@@ -1,13 +1,13 @@
 .pois_colours <-
   c("black" = "#000000",
-    "blue" ="#183172",
     "aqua" = "#00706C",
     "red" = "#E84D22",
     "yellow" = "#F7B500",
-    "peach" = "#F7DDAD",
-    "grey" = "#616161",
     "purple" = "#821C65",
-    "green" = "#1C5108", 
+    "green" = "#63BB42",
+    "blue" = "#90BDE5",
+    "orchid" = "#D888CF",
+    "grey" = "#7D7D7D",
     "legacy_red" = "#ff2500",
     "legacy_blue" = "#0433ff",
     "legacy_green" = "#008b00",
@@ -29,7 +29,6 @@
     "pois_blue2" = "#92bde3",
     "pois_blue3" = "#abcbe7")
 
-
 .pois_palettes <- list(
   legacy1 = c("black", "legacy_red", "legacy_blue", "legacy_green", "legacy_orange",
               "legacy_gray"),
@@ -38,7 +37,7 @@
   legacy3 = c("black", "legacy_red", "legacy_blue", "legacy_green", "legacy_brown",
               "legacy_gray", "legacy_orchid", "legacy_lightblue","aquamarine",
               "legacy_orange"),
-  colours = c("black", "blue", "aqua", "red", "yellow", "peach", "purple", "grey", "green"),
+  colours = c("black", "aqua", "red", "yellow", "purple", "green", "blue", "orchid", "grey"),
   cool = c("blue", "green"),
   hot = c("red", "yellow"))
 

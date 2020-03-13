@@ -76,17 +76,3 @@ scale_fill_pois <- function(palette = "colours", discrete = TRUE, reverse = FALS
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
-
-#' Poisson Colours
-#' 
-#'  @format A named character vector of Poisson Colours as hex codes
-#'  @examples 
-#'  .pois_colours
-"pois_colours"
-
-#' Poisson Palettes
-#' 
-#'  @format A list of character vectors of Poisson colour palettes
-#'  @examples 
-#'  .pois_palettes
-"pois_palettes"
