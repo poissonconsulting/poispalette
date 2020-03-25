@@ -76,3 +76,17 @@ scale_fill_pois <- function(palette = "colours", discrete = TRUE, reverse = FALS
     ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
+
+#' points
+#'
+#' @format An example data set for plotting
+#' @examples
+#' points
+"points"
+
+#' lines
+#'
+#' @format An example data set for plotting
+#' @examples
+#' lines
+"lines"
