@@ -22,6 +22,7 @@
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
+#' @export
 pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 
   chk::chk_s3_class(palette, "character")
@@ -41,7 +42,7 @@ pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
-#'
+#' @export
 scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
@@ -63,7 +64,7 @@ scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FA
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
-#'
+#' @export
 scale_fill_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
   chk::chk_flag(discrete)
   chk::chk_flag(reverse)
