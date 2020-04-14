@@ -17,8 +17,8 @@ Imports:
 Suggests: 
     covr,
     testthat
-URL: https://github.com/poissonconsulting/pkgtemplate
-BugReports: https://github.com/poissonconsulting/pkgtemplate/issues
+URL: https://github.com/poissonconsulting/poispalette
+BugReports: https://github.com/poissonconsulting/poispalette/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
