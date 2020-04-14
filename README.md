@@ -15,11 +15,6 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/poi
 coverage](https://codecov.io/gh/poissonconsulting/poispalette/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/poispalette?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Tinyverse
-status](https://tinyverse.netlify.com/badge/poispalette)](https://CRAN.R-project.org/package=poispalette)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/poispalette)](https://cran.r-project.org/package=poispalette)
-![CRAN downloads](http://cranlogs.r-pkg.org/badges/poispalette)
 <!-- badges: end -->
 
 ## Introduction
@@ -54,7 +49,7 @@ library(poispalette)
 
 scatter_plot <- ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE) 
+  poispalette::scale_colour_pois(discrete = TRUE)
 print(scatter_plot)
 ```
 
@@ -63,7 +58,7 @@ print(scatter_plot)
 ``` r
 
 histogram <- ggplot(poispalette::points, aes(x = X)) +
-  geom_histogram(aes(fill = ID), binwidth = 30) + 
+  geom_histogram(aes(fill = ID), binwidth = 30) +
   poispalette::scale_fill_pois(discrete = TRUE)
 print(histogram)
 ```
@@ -74,7 +69,7 @@ print(histogram)
 
 line_plot <- ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE) 
+  poispalette::scale_colour_pois(discrete = TRUE)
 print(line_plot)
 ```
 
