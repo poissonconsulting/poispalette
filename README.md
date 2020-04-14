@@ -47,30 +47,27 @@ install.packages("poispalette")
 library(ggplot2)
 library(poispalette)
 
-scatter_plot <- ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
+ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
   poispalette::scale_colour_pois(discrete = TRUE)
-print(scatter_plot)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
 
-histogram <- ggplot(poispalette::points, aes(x = X)) +
+ggplot(poispalette::points, aes(x = X)) +
   geom_histogram(aes(fill = ID), binwidth = 30) +
   poispalette::scale_fill_pois(discrete = TRUE)
-print(histogram)
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
 
-line_plot <- ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
+ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
   poispalette::scale_colour_pois(discrete = TRUE)
-print(line_plot)
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
