@@ -4,7 +4,7 @@
 \name{poispalette-package}
 \alias{poispalette}
 \alias{poispalette-package}
-\title{poispalette: What the Package Does (One Line, Title Case)}
+\title{poispalette: Poisson Palettes}
 \description{
 An R package for Poisson Consulting colour palettes.
 }
