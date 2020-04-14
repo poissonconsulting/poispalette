@@ -11,7 +11,7 @@ pois_cols <- function(cols = NULL) {
     return(.pois_colours)
   }
 
-  chk::chk_s3_class(cols, "character")
+  chk_s3_class(cols, "character")
   if (!all(cols %in% names(.pois_colours))) err("One or more values of cols not in pois_colours")
 
   .pois_colours[cols]
@@ -25,7 +25,7 @@ pois_cols <- function(cols = NULL) {
 #'
 #' @export
 pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
-  chk::chk_s3_class(palette, "character")
+  chk_s3_class(palette, "character")
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
 
@@ -44,8 +44,8 @@ pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #' @export
 scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
-  chk::chk_flag(discrete)
-  chk::chk_flag(reverse)
+  chk_flag(discrete)
+  chk_flag(reverse)
 
   pal <- pois_pal(palette = palette, reverse = reverse)
 
@@ -65,8 +65,8 @@ scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FA
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #' @export
 scale_fill_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
-  chk::chk_flag(discrete)
-  chk::chk_flag(reverse)
+  chk_flag(discrete)
+  chk_flag(reverse)
 
   pal <- pois_pal(palette = palette, reverse = reverse)
 
