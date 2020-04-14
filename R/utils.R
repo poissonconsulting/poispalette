@@ -10,7 +10,7 @@ set_names <- function(x, names) {
 
 sys_time <- function() {
   time <- Sys.time()
-  attr(time, "tzone") <- "UTC" 
+  attr(time, "tzone") <- "UTC"
   time
 }
 
@@ -42,9 +42,9 @@ last <- function(x) x[length(x)]
 sum2intswrap <- function(x, y) {
   sum <- as.double(x) + as.double(y)
   is_na <- is.na(sum)
-  sum[!is_na & sum < -.max_integer] <- 
+  sum[!is_na & sum < -.max_integer] <-
     sum[!is_na & sum < -.max_integer] %% .max_integer
-  sum[!is_na & sum > .max_integer] <- 
+  sum[!is_na & sum > .max_integer] <-
     sum[!is_na & sum > .max_integer] %% -.max_integer
   as.integer(sum)
 }
