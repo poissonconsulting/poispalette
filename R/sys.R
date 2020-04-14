@@ -49,5 +49,3 @@
   cool = c("blue", "green"),
   hot = c("red", "yellow")
 )
-
-.max_integer <- 2147483647L
