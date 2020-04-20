@@ -11,8 +11,8 @@ An R package for Poisson Consulting colour palettes.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/poissonconsulting/pkgtemplate}
-  \item Report bugs at \url{https://github.com/poissonconsulting/pkgtemplate/issues}
+  \item \url{https://github.com/poissonconsulting/poispalette}
+  \item Report bugs at \url{https://github.com/poissonconsulting/poispalette/issues}
 }
 
 }

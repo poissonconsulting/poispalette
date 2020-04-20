@@ -9,17 +9,26 @@ test_that("pois_cols works", {
 })
 
 test_that("pois_pal works", {
-  palette <- pois_pal()(4)
-  expect_identical(palette, c("#000000", "#572EA9", "#448900", "#707F90"))
+  palette <- pois_pal(palette = "colours")(9)
+  
+  expect_identical(palette, c("#000000", "#00706C", "#E84D22", "#F7B500", "#821C65",
+                              "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D"))
 
   expect_error(pois_pal(palette = "not a palatte"), "Name of palette not found in pois_palettes")
   expect_error(pois_pal(palette = c("too", "many")), "Value of palette must be length 1")
 })
 
-test_that("scale_colour_pois / scale_fill_pois works", {
-  scale <- scale_colour_pois("cool")
+test_that("functions produce scale objects", {
+  scale <- scale_colour_disc_pois()
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
 
-  scale <- scale_fill_pois("cool")
+  scale <- scale_fill_disc_pois("legacy")
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
+  
+  scale <- scale_colour_grad_pois("cool")
+  expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
+  
+  scale <- scale_fill_grad_pois("hot")
+  expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
+  
 })

@@ -24,7 +24,7 @@ pois_cols <- function(cols = NULL) {
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
+pois_pal <- function(palette = "colours", reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
@@ -35,44 +35,55 @@ pois_pal <- function(palette = "legacy1", reverse = FALSE, ...) {
   grDevices::colorRampPalette(pal, ...)
 }
 
-#' colour scale constructor for poisson colours
+#' discrete colour scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
-#' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to discrete_scale() or
-#'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
+#' @param ... Additional arguments passed to discrete_scale()
 #' @export
-scale_colour_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
-  chk_flag(discrete)
+scale_colour_disc_pois <- function(palette = "colours", reverse = FALSE, ...) {
   chk_flag(reverse)
 
   pal <- pois_pal(palette = palette, reverse = reverse)
+  ggplot2::discrete_scale("colour", paste0("pos_", palette), palette = pal, ...)
+}
 
-  if (discrete) {
-    ggplot2::discrete_scale("colour", paste0("pos_", palette), palette = pal, ...)
-  } else {
-    ggplot2::scale_color_gradientn(colours = pal(256), ...)
-  }
+#' gradient colour scale constructor for poisson colours
+#'
+#' @param palette Character name of palette in pois_palettes
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments passed to scale_color_gradientn()
+#' @export
+scale_colour_grad_pois <- function(palette = "cool", reverse = FALSE, ...) {
+  chk_flag(reverse)
+  
+  pal <- pois_pal(palette = palette, reverse = reverse)
+  ggplot2::scale_color_gradientn(colours = pal(256), ...)
 }
 
 #' Fill scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
-#' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to discrete_scale() or
-#'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
+#' @param ... Additional arguments passed to discrete_scale()
+#'            
 #' @export
-scale_fill_pois <- function(palette = "colours", discrete = TRUE, reverse = FALSE, ...) {
-  chk_flag(discrete)
+scale_fill_disc_pois <- function(palette = "colours", reverse = FALSE, ...) {
   chk_flag(reverse)
 
   pal <- pois_pal(palette = palette, reverse = reverse)
+  ggplot2::discrete_scale("fill", paste0("pos_", palette), palette = pal, ...)
+}
 
-  if (discrete) {
-    ggplot2::discrete_scale("fill", paste0("pos_", palette), palette = pal, ...)
-  } else {
-    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
-  }
+#' Fill scale constructor for poisson colours
+#'
+#' @param palette Character name of palette in pois_palettes
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments passed to scale_color_gradientn()
+#' @export
+scale_fill_grad_pois <- function(palette = "colours", reverse = FALSE, ...) {
+  chk_flag(reverse)
+  
+  pal <- pois_pal(palette = palette, reverse = reverse)
+  ggplot2::scale_fill_gradientn(colours = pal(256), ...)
 }

@@ -49,15 +49,15 @@ library(poispalette)
 
 ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE)
+  poispalette::scale_colour_disc_pois()
 
 ggplot(poispalette::points, aes(x = X)) +
   geom_histogram(aes(fill = ID), binwidth = 30) +
-  poispalette::scale_fill_pois(discrete = TRUE)
+  poispalette::scale_fill_disc_pois()
 
 ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE)
+  poispalette::scale_colour_disc_pois(palette = "legacy")
 ```
 
 ## Contribution
