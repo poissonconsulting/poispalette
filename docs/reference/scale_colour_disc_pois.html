@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>colour scale constructor for poisson colours — scale_colour_pois • poispalette</title>
+<title>discrete colour scale constructor for poisson colours — scale_colour_disc_pois • poispalette</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="colour scale constructor for poisson colours — scale_colour_pois" />
-<meta property="og:description" content="colour scale constructor for poisson colours" />
+<meta property="og:title" content="discrete colour scale constructor for poisson colours — scale_colour_disc_pois" />
+<meta property="og:description" content="discrete colour scale constructor for poisson colours" />
 
 
 
@@ -111,16 +111,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>colour scale constructor for poisson colours</h1>
+    <h1>discrete colour scale constructor for poisson colours</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/poispalette/blob/master/R/colours.R'><code>R/colours.R</code></a></small>
-    <div class="hidden name"><code>scale_colour_pois.Rd</code></div>
+    <div class="hidden name"><code>scale_colour_disc_pois.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>colour scale constructor for poisson colours</p>
+    <p>discrete colour scale constructor for poisson colours</p>
     </div>
 
-    <pre class="usage"><span class='fu'>scale_colour_pois</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"colours"</span>, <span class='kw'>discrete</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>scale_colour_disc_pois</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"colours"</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -130,17 +130,12 @@
       <td><p>Character name of palette in pois_palettes</p></td>
     </tr>
     <tr>
-      <th>discrete</th>
-      <td><p>Boolean indicating whether colour aesthetic is discrete or not</p></td>
-    </tr>
-    <tr>
       <th>reverse</th>
       <td><p>Boolean indicating whether the palette should be reversed</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to discrete_scale() or
-scale_color_gradientn(), used respectively when discrete is TRUE or FALSE</p></td>
+      <td><p>Additional arguments passed to discrete_scale()</p></td>
     </tr>
     </table>
 

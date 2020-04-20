@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>poisson colours — pois_cols • poispalette</title>
+<title>Fill scale constructor for poisson colours — scale_fill_disc_pois • poispalette</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="poisson colours — pois_cols" />
-<meta property="og:description" content="poisson colours" />
+<meta property="og:title" content="Fill scale constructor for poisson colours — scale_fill_disc_pois" />
+<meta property="og:description" content="Fill scale constructor for poisson colours" />
 
 
 
@@ -111,47 +111,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>poisson colours</h1>
+    <h1>Fill scale constructor for poisson colours</h1>
     <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/poispalette/blob/master/R/colours.R'><code>R/colours.R</code></a></small>
-    <div class="hidden name"><code>pois_cols.Rd</code></div>
+    <div class="hidden name"><code>scale_fill_disc_pois.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>poisson colours</p>
+    <p>Fill scale constructor for poisson colours</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pois_cols</span>(<span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>scale_fill_disc_pois</span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"colours"</span>, <span class='kw'>reverse</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>cols</th>
-      <td><p>Character names of Poisson colours</p></td>
+      <th>palette</th>
+      <td><p>Character name of palette in pois_palettes</p></td>
+    </tr>
+    <tr>
+      <th>reverse</th>
+      <td><p>Boolean indicating whether the palette should be reversed</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments passed to discrete_scale()</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a named vector of hex colours</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>pois_cols</span>()</div><div class='output co'>#&gt;             black              aqua               red            yellow 
-#&gt;         "#000000"         "#00706C"         "#E84D22"         "#F7B500" 
-#&gt;            purple             green              blue            orchid 
-#&gt;         "#821C65"         "#63BB42"         "#90BDE5"         "#D888CF" 
-#&gt;              grey         dark blue        legacy_red       legacy_blue 
-#&gt;         "#7D7D7D"         "#00009F"         "#ff2500"         "#0433ff" 
-#&gt;      legacy_green      legacy_brown       legacy_gray     legacy_orchid 
-#&gt;         "#008b00"         "#a52a2a"         "#707f90"         "#da70d6" 
-#&gt;  legacy_lightblue legacy_aquamarine     legacy_orange     legacy_purple 
-#&gt;         "#87cefa"         "#458b74"         "#cd8500"         "#a034f0" 
-#&gt;     cblind_orange       cblind_blue      cblind_green      cblind_mango 
-#&gt;         "#D55E00"         "#0072B2"         "#009E73"         "#E69F00" 
-#&gt;     cblind_yellow       cblind_pink  cblind_lightblue        pois_blue1 
-#&gt;         "#F0E442"         "#CC79A7"         "#56B4E9"         "#759dbe" 
-#&gt;        pois_blue2 
-#&gt;         "#abcbe7" </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
