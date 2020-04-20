@@ -49,7 +49,7 @@ library(poispalette)
 
 ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE)
+  poispalette::scale_colour_disc_pois()
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
@@ -58,7 +58,7 @@ ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
 
 ggplot(poispalette::points, aes(x = X)) +
   geom_histogram(aes(fill = ID), binwidth = 30) +
-  poispalette::scale_fill_pois(discrete = TRUE)
+  poispalette::scale_fill_disc_pois()
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
@@ -67,10 +67,19 @@ ggplot(poispalette::points, aes(x = X)) +
 
 ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_pois(discrete = TRUE)
+  poispalette::scale_colour_disc_pois(palette = "legacy")
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
+
+``` r
+
+ggplot(poispalette::points, aes(x = X, y = Y)) +
+  geom_point(aes(colour = RandomX), size = 2) +
+  poispalette::scale_colour_grad_pois(palette = "cool")
+```
+
+<img src="man/figures/README-example-4.png" width="100%" />
 
 ## Contribution
 
