@@ -7,10 +7,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build
-status](https://travis-ci.com/poissonconsulting/poispalette.svg?branch=master)](https://travis-ci.com/poissonconsulting/poispalette)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/poispalette?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/poispalette)
+[![R build
+status](https://github.com/poissonconsulting/poispalette/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/poispalette/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/poispalette/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/poispalette?branch=master)
 [![License:
@@ -45,6 +43,7 @@ install.packages("poispalette")
 
 ``` r
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 3.6.3
 library(poispalette)
 
 ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
@@ -89,6 +88,9 @@ Please report any
 [Pull requests](https://github.com/poissonconsulting/poispalette/pulls)
 are always welcome.
 
-Please note that this project is released with a [Contributor Code of
-Conduct](https://github.com/poissonconsulting/poispalette/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+## Code of Conduct
+
+Please note that the poispalette project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
