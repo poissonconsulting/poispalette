@@ -29,7 +29,7 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   chk_flag(reverse)
   
   if (!length(palette) == 1L) err("Value of palette must be length 1")
-  if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
+  if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
 
   pal <- pois_cols(.pois_palettes[[palette]])
   if (reverse) pal <- rev(pal)
@@ -51,10 +51,10 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   chk_flag(reverse)
   
   if(length(palette) == 1) {
-    if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
+    if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
     pal <- pois_cols(.pois_palettes[[palette]])
   } else {
-    if (!all(palette %in% names(.pois_colours))) err("Name of palette not found in pois_palettes")
+    if (!all(palette %in% names(.pois_colours))) err("Colours in palette not found in `.pois_colours`")
     pal <- pois_cols(palette)  
   }
   
