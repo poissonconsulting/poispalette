@@ -23,16 +23,16 @@ test_that("pois_pal works", {
 })
 
 test_that("functions produce scale objects", {
-  scale <- scale_colour_disc_pois()
+  scale <- scale_colour_disc_poisson()
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
 
-  scale <- scale_fill_disc_pois("legacy")
+  scale <- scale_fill_disc_poisson("legacy")
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
   
-  scale <- scale_colour_grad_pois("cool")
+  scale <- scale_colour_grad_poisson("cool")
   expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
   
-  scale <- scale_fill_grad_pois("hot")
+  scale <- scale_fill_grad_poisson("hot")
   expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
   
 })
