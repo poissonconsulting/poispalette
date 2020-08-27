@@ -99,33 +99,32 @@
 <a href="#demonstration" class="anchor"></a>Demonstration</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
-<span class="co">#&gt; Warning: package 'ggplot2' was built under R version 3.6.3</span>
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/poissonconsulting/poispalette">poispalette</a></span>)
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">poispalette</span>::<span class="kw"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">RandomX</span>, y = <span class="kw">RandomY</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(colour = <span class="kw">ID</span>), size = <span class="fl">2</span>) <span class="op">+</span>
-  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_disc_pois.html">scale_colour_disc_pois</a></span>()
+  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_disc_poisson.html">scale_colour_disc_poisson</a></span>()
 </pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">poispalette</span>::<span class="kw"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">X</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(fill = <span class="kw">ID</span>), binwidth = <span class="fl">30</span>) <span class="op">+</span>
-  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_fill_disc_pois.html">scale_fill_disc_pois</a></span>()
+  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_fill_disc_poisson.html">scale_fill_disc_poisson</a></span>()
 </pre></div>
 <p><img src="reference/figures/README-example-2.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">poispalette</span>::<span class="kw"><a href="reference/lines.html">lines</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">DateTimeData</span>, y = <span class="kw">Value</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(colour = <span class="kw">ID</span>), size = <span class="fl">2</span>) <span class="op">+</span>
-  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_disc_pois.html">scale_colour_disc_pois</a></span>(palette = <span class="st">"legacy"</span>)
+  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_disc_poisson.html">scale_colour_disc_poisson</a></span>(palette = <span class="st">"legacy"</span>)
 </pre></div>
 <p><img src="reference/figures/README-example-3.png" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">poispalette</span>::<span class="kw"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">X</span>, y = <span class="kw">Y</span>)) <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(colour = <span class="kw">RandomX</span>), size = <span class="fl">2</span>) <span class="op">+</span>
-  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_grad_pois.html">scale_colour_grad_pois</a></span>(palette = <span class="st">"cool"</span>)
+  <span class="kw">poispalette</span>::<span class="fu"><a href="reference/scale_colour_grad_poisson.html">scale_colour_grad_poisson</a></span>(palette = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"yellow"</span>, <span class="st">"red"</span>, <span class="st">"dark blue"</span>))
 </pre></div>
 <p><img src="reference/figures/README-example-4.png" width="100%"></p>
 </div>
