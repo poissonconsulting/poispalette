@@ -74,7 +74,7 @@ ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
 
 ggplot(poispalette::points, aes(x = X, y = Y)) +
   geom_point(aes(colour = RandomX), size = 2) +
-  poispalette::scale_colour_grad_poisson(palette = "cool")
+  poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
