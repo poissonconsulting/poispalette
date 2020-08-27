@@ -50,10 +50,14 @@ pal_gradient <- function(n = 256, palette, reverse = FALSE){
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
-  if (!length(palette) == 1L) err("Value of palette must be length 1")
-  if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
+  if(length(palette) == 1) {
+    if (!palette %in% names(.pois_palettes)) err("Name of palette not found in pois_palettes")
+    pal <- pois_cols(.pois_palettes[[palette]])
+  } else {
+    if (!all(palette %in% names(.pois_colours))) err("Name of palette not found in pois_palettes")
+    pal <- pois_cols(palette)  
+  }
   
-  pal <- pois_cols(.pois_palettes[[palette]])
   if (reverse) pal <- rev(pal)
   
   grad <- colorscale::chroma_scale$new()
@@ -78,7 +82,8 @@ scale_colour_disc_poisson <- function(palette = "colours", reverse = FALSE, ...)
 
 #' gradient colour scale constructor for poisson colours
 #'
-#' @param palette Character name of palette in pois_palettes
+#' @param palette Character name of palette in pois_palettes, or selection 
+#' of colour names from pois_cols
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to scale_color_gradientn()
 #' @export
@@ -103,7 +108,8 @@ scale_fill_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
 
 #' Gradient fill scale constructor for poisson colours
 #'
-#' @param palette Character name of palette in pois_palettes
+#' @param palette Character name of palette in pois_palettes, or selection 
+#' of colour names from pois_cols
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to scale_color_gradientn()
 #' @export

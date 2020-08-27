@@ -4,7 +4,7 @@
 \alias{pal_gradient}
 \title{Return interpolated color gradient for a continuous poisson colour palette}
 \usage{
-pal_gradient(n, palette, reverse = FALSE)
+pal_gradient(n = 256, palette, reverse = FALSE)
 }
 \arguments{
 \item{n}{Number of steps in gradient}
