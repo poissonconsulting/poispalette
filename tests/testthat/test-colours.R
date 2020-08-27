@@ -9,17 +9,17 @@ test_that("pois_cols works", {
 })
 
 test_that("pois_pal works", {
-  palette <- pois_pal(palette = "colours")(9)
+  palette <- pois_pal_disc(palette = "colours")(9)
   
   expect_identical(palette, c("#000000", "#00706C", "#E84D22", "#F7B500", "#821C65",
                               "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D"))
 
-  palette <- pois_pal(palette = "colours", reverse = TRUE)(9)
+  palette <- pois_pal_disc(palette = "colours", reverse = TRUE)(9)
   expect_identical(palette, c("#7D7D7D", "#D888CF", "#90BDE5", "#63BB42", "#821C65",
                               "#F7B500", "#E84D22", "#00706C", "#000000"))
   
-  expect_error(pois_pal(palette = "not a palatte"), "Name of palette not found in pois_palettes")
-  expect_error(pois_pal(palette = c("too", "many")), "Value of palette must be length 1")
+  expect_error(pois_pal_disc(palette = "not a palatte"), "Name of palette not found in pois_palettes")
+  expect_error(pois_pal_disc(palette = c("too", "many")), "Value of palette must be length 1")
 })
 
 test_that("functions produce scale objects", {

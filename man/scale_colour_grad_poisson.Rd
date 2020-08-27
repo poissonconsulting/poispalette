@@ -7,7 +7,8 @@
 scale_colour_grad_poisson(palette = "cool", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in pois_palettes}
+\item{palette}{Character name of palette in pois_palettes, or selection
+of colour names from pois_cols}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

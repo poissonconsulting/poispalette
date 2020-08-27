@@ -24,7 +24,7 @@ pois_cols <- function(cols = NULL) {
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal <- function(palette = "colours", reverse = FALSE, ...) {
+pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
@@ -45,7 +45,7 @@ pois_pal <- function(palette = "colours", reverse = FALSE, ...) {
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pal_gradient <- function(n = 256, palette, reverse = FALSE){
+pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   chk_numeric(n)
   chk_s3_class(palette, "character")
   chk_flag(reverse)
@@ -76,7 +76,7 @@ pal_gradient <- function(n = 256, palette, reverse = FALSE){
 #' @export
 scale_colour_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
 
-  pal <- pois_pal(palette = palette, reverse = reverse)
+  pal <- pois_pal_disc(palette = palette, reverse = reverse)
   ggplot2::discrete_scale("colour", paste0("pois_", palette), palette = pal, ...)
 }
 
@@ -89,7 +89,7 @@ scale_colour_disc_poisson <- function(palette = "colours", reverse = FALSE, ...)
 #' @export
 scale_colour_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
   
-  pal <- pal_gradient(palette = palette, reverse = reverse)
+  pal <- pois_pal_grad(palette = palette, reverse = reverse)
   ggplot2::scale_color_gradientn(colours = pal, ...)
 }
 
@@ -102,7 +102,7 @@ scale_colour_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
 #' @export
 scale_fill_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
 
-  pal <- pois_pal(palette = palette, reverse = reverse)
+  pal <- pois_pal_disc(palette = palette, reverse = reverse)
   ggplot2::discrete_scale("fill", paste0("pois_", palette), palette = pal, ...)
 }
 
@@ -115,6 +115,6 @@ scale_fill_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
 #' @export
 scale_fill_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
   
-  pal <- pal_gradient(256, palette = palette, reverse = reverse)
+  pal <- pois_pal_grad(256, palette = palette, reverse = reverse)
   ggplot2::scale_fill_gradientn(colours = pal, ...)
 }
