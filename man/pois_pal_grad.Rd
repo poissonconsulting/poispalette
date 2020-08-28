@@ -12,8 +12,6 @@ pois_pal_grad(n = 256, palette, reverse = FALSE)
 \item{palette}{Character name of palette in pois_palettes}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
-
-\item{...}{Additional arguments to pass to colourRampPalette()}
 }
 \description{
 Return interpolated color gradient for a continuous poisson colour palette

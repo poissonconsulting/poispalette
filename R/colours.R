@@ -42,7 +42,6 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
 #' @param n Number of steps in gradient
 #' @param palette Character name of palette in pois_palettes
 #' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
 pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
