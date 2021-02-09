@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R build
 status](https://github.com/poissonconsulting/poispalette/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/poispalette/actions)
 [![Codecov test
@@ -53,7 +53,6 @@ ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-
 ggplot(poispalette::points, aes(x = X)) +
   geom_histogram(aes(fill = ID), binwidth = 30) +
   poispalette::scale_fill_disc_poisson()
@@ -62,7 +61,6 @@ ggplot(poispalette::points, aes(x = X)) +
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-
 ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
   poispalette::scale_colour_disc_poisson(palette = "legacy")
@@ -71,7 +69,6 @@ ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
-
 ggplot(poispalette::points, aes(x = X, y = Y)) +
   geom_point(aes(colour = RandomX), size = 2) +
   poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
