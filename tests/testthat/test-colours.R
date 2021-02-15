@@ -1,5 +1,3 @@
-context("colours")
-
 test_that("pois_cols works", {
   colours_fun <- pois_cols()[1:2]
   colours_data <- poispalette:::.pois_colours[1:2]
