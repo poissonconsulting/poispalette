@@ -30,15 +30,6 @@ To install the latest development version from
 remotes::install_github("poissonconsulting/poispalette")
 ```
 
-To install the latest developmental release from the Poisson drat
-[repository](https://github.com/poissonconsulting/drat)
-
-``` r
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("poispalette")
-```
-
 ## Demonstration
 
 ``` r
