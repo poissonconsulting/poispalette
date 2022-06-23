@@ -36,7 +36,7 @@
               "orchid", "grey"),
   cool = c("pois_blue1", "dark blue"),
   hot = c("yellow", "red"),
-  begacy = c("black", "legacy_red", "legacy_blue", "legacy_green", "legacy_brown",
+  legacy = c("black", "legacy_red", "legacy_blue", "legacy_green", "legacy_brown",
     "legacy_gray", "legacy_orchid", "legacy_lightblue", "legacy_aquamarine",
     "legacy_orange"),
   col_blind = c("cblind_orange", "black", "cblind_lightblue", "cblind_green",
