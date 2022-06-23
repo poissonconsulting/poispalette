@@ -7,8 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R build
-status](https://github.com/poissonconsulting/poispalette/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/poispalette/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/poispalette/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/poispalette/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/poispalette/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/poispalette?branch=master)
 [![License:
@@ -44,35 +43,65 @@ install.packages("poispalette")
 ``` r
 library(ggplot2)
 #> Warning: package 'ggplot2' was built under R version 4.1.2
-library(poispalette)
 
-ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
-  geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson()
+pal <- poispalette:::.pois_palettes$colours
+colours <- poispalette:::.pois_colours[pal]
+colours <- as.vector(colours)
+
+data.frame(x = colours, y = 1) |>
+  ggplot() +
+  aes(x = x, y = y, fill = factor(x)) +
+  scale_fill_manual(values = colours) +
+  geom_tile() +
+  coord_equal() +
+  theme(axis.text.y = element_blank(),
+        axis.title = element_blank(),
+        panel.grid = element_blank(),
+        legend.position = "none",
+        axis.ticks.length.y = unit(0, "mm"),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)
+  )
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
-  geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson(palette = "legacy")
+pal <- poispalette:::.pois_palettes$col_blind
+colours <- poispalette:::.pois_colours[pal]
+colours <- as.vector(colours)
+
+data.frame(x = colours, y = 1) |>
+  ggplot() +
+  aes(x = x, y = y, fill = factor(x)) +
+  scale_fill_manual(values = colours) +
+  geom_tile() +
+  coord_equal() +
+  theme(axis.text.y = element_blank(),
+        axis.title = element_blank(),
+        panel.grid = element_blank(),
+        legend.position = "none",
+        axis.ticks.length.y = unit(0, "mm"),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)
+  )
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-ggplot(poispalette::points, aes(x = X)) +
-  geom_histogram(aes(fill = ID), binwidth = 30) +
-  poispalette::scale_fill_disc_poisson()
+ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
+  geom_point(aes(colour = ID), size = 2) +
+  poispalette::scale_colour_disc_poisson()
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
-ggplot(poispalette::points, aes(x = X, y = Y)) +
-  geom_point(aes(colour = RandomX), size = 2) +
-  poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
+points <- poispalette::points
+points <- points[!points$ID == "I", ]
+
+ggplot(points, aes(x = RandomX, y = RandomY)) +
+  geom_point(aes(colour = ID), size = 2) +
+  poispalette::scale_colour_disc_poisson(palette = "col_blind")
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
@@ -80,10 +109,26 @@ ggplot(poispalette::points, aes(x = X, y = Y)) +
 ``` r
 ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
   geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson(palette = "legacy")
+  poispalette::scale_colour_disc_poisson()
 ```
 
 <img src="man/figures/README-example-5.png" width="100%" />
+
+``` r
+ggplot(poispalette::points, aes(x = X)) +
+  geom_histogram(aes(fill = ID), binwidth = 30) +
+  poispalette::scale_fill_disc_poisson()
+```
+
+<img src="man/figures/README-example-6.png" width="100%" />
+
+``` r
+ggplot(poispalette::points, aes(x = X, y = Y)) +
+  geom_point(aes(colour = RandomX), size = 2) +
+  poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
+```
+
+<img src="man/figures/README-example-7.png" width="100%" />
 
 ## Contribution
 
