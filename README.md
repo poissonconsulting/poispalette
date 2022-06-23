@@ -43,6 +43,7 @@ install.packages("poispalette")
 
 ``` r
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.1.2
 library(poispalette)
 
 ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
@@ -53,31 +54,36 @@ ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-
-ggplot(poispalette::points, aes(x = X)) +
-  geom_histogram(aes(fill = ID), binwidth = 30) +
-  poispalette::scale_fill_disc_poisson()
+ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
+  geom_point(aes(colour = ID), size = 2) +
+  poispalette::scale_colour_disc_poisson(palette = "legacy")
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-
-ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
-  geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson(palette = "legacy")
+ggplot(poispalette::points, aes(x = X)) +
+  geom_histogram(aes(fill = ID), binwidth = 30) +
+  poispalette::scale_fill_disc_poisson()
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
-
 ggplot(poispalette::points, aes(x = X, y = Y)) +
   geom_point(aes(colour = RandomX), size = 2) +
   poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
+
+``` r
+ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
+  geom_line(aes(colour = ID), size = 2) +
+  poispalette::scale_colour_disc_poisson(palette = "legacy")
+```
+
+<img src="man/figures/README-example-5.png" width="100%" />
 
 ## Contribution
 
