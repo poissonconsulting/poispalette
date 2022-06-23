@@ -30,11 +30,11 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
-
+  
   pal <- pois_cols(.pois_palettes[[palette]])
   if (reverse) pal <- rev(pal)
-
-  grDevices::colorRampPalette(pal, ...)
+  
+  subset_palette(pal)
 }
 
 #' Return interpolated color gradient for a continuous poisson colour palette

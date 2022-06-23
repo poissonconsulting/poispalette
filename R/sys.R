@@ -32,10 +32,14 @@
   )
 
 .pois_palettes <- list(
-  colours = c("black", "aqua", "red", "yellow", "purple", "green", "blue", "orchid", "grey"),
+  colours = c("black", "aqua", "red", "yellow", "purple", "green", "blue",
+              "orchid", "grey"),
   cool = c("pois_blue1", "dark blue"),
   hot = c("yellow", "red"),
   legacy = c("black", "legacy_red", "legacy_blue", "legacy_green", "legacy_brown",
     "legacy_gray", "legacy_orchid", "legacy_lightblue", "legacy_aquamarine",
-    "legacy_orange")
+    "legacy_orange"),
+  col_blind = c("cblind_orange","cblind_blue","cblind_green", "cblind_mango",
+                "cblind_yellow","cblind_pink","cblind_lightblue")
 )
+# col_blind = c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7"),
