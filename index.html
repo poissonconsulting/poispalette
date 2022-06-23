@@ -69,7 +69,6 @@
 <div class="page-header"><h1 id="poispalette">poispalette<a class="anchor" aria-label="anchor" href="#poispalette"></a>
 </h1></div>
 <!-- badges: start -->
-
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -100,17 +99,20 @@
   <span class="fu">poispalette</span><span class="fu">::</span><span class="fu"><a href="reference/scale_colour_disc_poisson.html">scale_colour_disc_poisson</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html" class="external-link">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">ID</span><span class="op">)</span>, binwidth <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">poispalette</span><span class="fu">::</span><span class="fu"><a href="reference/scale_fill_disc_poisson.html">scale_fill_disc_poisson</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example-2.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/lines.html">lines</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">DateTimeData</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/lines.html">lines</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">DateTimeData</span>, y <span class="op">=</span> <span class="va">Value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">ID</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">poispalette</span><span class="fu">::</span><span class="fu"><a href="reference/scale_colour_disc_poisson.html">scale_colour_disc_poisson</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"legacy"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example-3.png" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span>, y <span class="op">=</span> <span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu">poispalette</span><span class="fu">::</span><span class="va"><a href="reference/points.html">points</a></span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span>, y <span class="op">=</span> <span class="va">Y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="va">RandomX</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">poispalette</span><span class="fu">::</span><span class="fu"><a href="reference/scale_colour_grad_poisson.html">scale_colour_grad_poisson</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"yellow"</span>, <span class="st">"red"</span>, <span class="st">"dark blue"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-example-4.png" width="100%"></p>
@@ -151,6 +153,14 @@
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+<li><a href="SUPPORT.html">Getting help</a></li>
+</ul>
+</div>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing poispalette</a></li>
 </ul>
 </div>
 
@@ -166,7 +176,7 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/poissonconsulting/poispalette/actions" class="external-link"><img src="https://github.com/poissonconsulting/poispalette/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://codecov.io/gh/poissonconsulting/poispalette?branch=master" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/poispalette/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
@@ -184,7 +194,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer>
