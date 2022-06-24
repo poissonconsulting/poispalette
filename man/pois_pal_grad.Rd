@@ -4,14 +4,21 @@
 \alias{pois_pal_grad}
 \title{Return interpolated color gradient for a continuous poisson colour palette}
 \usage{
-pois_pal_grad(n_steps = 256, palette, reverse = FALSE)
+pois_pal_grad(
+  palette,
+  reverse = FALSE,
+  n_steps = 256,
+  n_col = getOption("poispalette.n_col", NULL)
+)
 }
 \arguments{
-\item{n_steps}{Number of steps in gradient}
-
 \item{palette}{Character name of palette in pois_palettes}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
+
+\item{n_steps}{Number of steps in gradient}
+
+\item{n_col}{Number of colours to subset from the palette (optional)}
 }
 \description{
 Return interpolated color gradient for a continuous poisson colour palette
