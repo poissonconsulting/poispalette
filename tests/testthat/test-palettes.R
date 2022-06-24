@@ -29,5 +29,5 @@ test_that("pois_pal_disc works", {
 
 test_that("pois_pal_grad works", {
   expect_error(pois_pal_grad(palette = "not a palette"), "Name of palette not found in `.pois_palettes`")
-  expect_error(pois_pal_grad(palette = c("not", "colours")), "Colours in palette not found in `.pois_colours`")
+  expect_error(pois_pal_grad(palette = c("not", "colours")), "Ivalid hex codes detected: not, colours.")
 })

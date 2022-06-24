@@ -56,6 +56,6 @@ scale_colour_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
 #' @export
 scale_fill_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
   
-  pal <- pois_pal_grad(256, palette = palette, reverse = reverse)
+  pal <- pois_pal_grad(palette = palette, reverse = reverse)
   ggplot2::scale_fill_gradientn(colours = pal, ...)
 }

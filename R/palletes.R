@@ -66,12 +66,11 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
-  if(length(palette) == 1) {
+  if(all(length(palette) == 1 & !vld_hex(palette))) {
     if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
     palette <- pois_cols(.pois_palettes[[palette]])
   } else {
-    if (!all(palette %in% names(.pois_colours))) err("Colours in palette not found in `.pois_colours`")
-    palette <- pois_cols(palette)  
+    chk_hex(palette)
   }
   
   if (reverse) palette <- rev(palette)
