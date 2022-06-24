@@ -5,7 +5,7 @@
 \title{gradient colour scale constructor for poisson colours}
 \usage{
 scale_colour_grad_poisson(
-  palette = "cool",
+  palette = getOption("poispalette.colours", "cool"),
   reverse = FALSE,
   n_steps = 256,
   ...

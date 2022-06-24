@@ -4,7 +4,12 @@
 \alias{scale_fill_grad_poisson}
 \title{Gradient fill scale constructor for poisson colours}
 \usage{
-scale_fill_grad_poisson(palette = "cool", reverse = FALSE, n_steps = 256, ...)
+scale_fill_grad_poisson(
+  palette = getOption("poispalette.colours", "cool"),
+  reverse = FALSE,
+  n_steps = 256,
+  ...
+)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes, or selection
