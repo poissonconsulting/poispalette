@@ -31,10 +31,27 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
   
-  pal <- pois_cols(.pois_palettes[[palette]])
-  if (reverse) pal <- rev(pal)
+  palette <- pois_cols(.pois_palettes[[palette]])
+  if (reverse) palette <- rev(palette)
   
-  subset_palette(pal)
+  subset_palette(palette)
+}
+
+#' Return function to subset a user provided colour palette
+#'
+#' @param palette Character name of palette in pois_palettes
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param ... Additional arguments to pass to colourRampPalette()
+#'
+#' @export
+pois_pal_custom <- function(palette, reverse = FALSE, ...) {
+  chk_s3_class(palette, "character")
+  chk_flag(reverse)
+  chk_hex(palette)
+  
+  if (reverse) palette <- rev(palette)
+  
+  subset_palette(palette)
 }
 
 #' Return interpolated color gradient for a continuous poisson colour palette
@@ -51,16 +68,16 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   
   if(length(palette) == 1) {
     if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
-    pal <- pois_cols(.pois_palettes[[palette]])
+    palette <- pois_cols(.pois_palettes[[palette]])
   } else {
     if (!all(palette %in% names(.pois_colours))) err("Colours in palette not found in `.pois_colours`")
-    pal <- pois_cols(palette)  
+    palette <- pois_cols(palette)  
   }
   
-  if (reverse) pal <- rev(pal)
+  if (reverse) palette <- rev(palette)
   
   grad <- colorscale::chroma_scale$new()
-  grad$bezier(pal)
+  grad$bezier(palette)
   grad$scale()
   grad$correctLightness()
   grad$colors(n)
@@ -73,9 +90,15 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #' @export
-scale_colour_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
-
-  pal <- pois_pal_disc(palette = palette, reverse = reverse)
+scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "colours"),
+                                      reverse = FALSE, ...) {
+  
+  if(length(palette) == 1L){
+    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
+  } else {
+    pal <- pois_pal_custom(palette = palette, reverse = reverse)
+  }
+  
   ggplot2::discrete_scale("colour", paste0("pois_", palette), palette = pal, ...)
 }
 
