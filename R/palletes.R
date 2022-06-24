@@ -80,7 +80,7 @@ pois_pal_grad <- function(palette,
   if(!is.null(n_col)) {
     chk_numeric(n_col)
     if(n_col < 2) err("Argument `n_col` must be 2 or greater.")
-    if(n_col < length(palette)) err("Argument `n_col` is less than number of colours in palette.")
+    if(n_col > length(palette)) err("Argument `n_col` is greater than number of colours in palette.")
   
     palette <- palette[1:n_col]
     }

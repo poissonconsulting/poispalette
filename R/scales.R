@@ -49,7 +49,7 @@ scale_colour_grad_poisson <- function(palette = getOption("poispalette.gradient"
                                       n_col = getOption("poispalette.n_col", NULL),
                                       ...) {
   
-  pal <- pois_pal_grad(palette = palette, reverse = reverse)
+  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   ggplot2::scale_color_gradientn(colours = pal, ...)
 }
 
@@ -68,6 +68,6 @@ scale_fill_grad_poisson <- function(palette = getOption("poispalette.gradient", 
                                     n_col = getOption("poispalette.n_col", NULL),
                                     ...) {
   
-  pal <- pois_pal_grad(palette = palette, reverse = reverse)
+  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   ggplot2::scale_fill_gradientn(colours = pal, ...)
 }
