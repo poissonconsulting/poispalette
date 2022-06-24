@@ -56,13 +56,13 @@ pois_pal_custom <- function(palette, reverse = FALSE, ...) {
 
 #' Return interpolated color gradient for a continuous poisson colour palette
 #'
-#' @param n Number of steps in gradient
+#' @param n_steps Number of steps in gradient
 #' @param palette Character name of palette in pois_palettes
 #' @param reverse Boolean indicating whether the palette should be reversed
 #'
 #' @export
-pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
-  chk_numeric(n)
+pois_pal_grad <- function(n_steps = 256, palette, reverse = FALSE){
+  chk_numeric(n_steps)
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
@@ -79,6 +79,6 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   grad$bezier(palette)
   grad$scale()
   grad$correctLightness()
-  grad$colors(n)
+  grad$colors(n_steps)
   grad$eval()
 }

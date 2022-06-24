@@ -4,13 +4,20 @@
 \alias{scale_colour_grad_poisson}
 \title{gradient colour scale constructor for poisson colours}
 \usage{
-scale_colour_grad_poisson(palette = "cool", reverse = FALSE, ...)
+scale_colour_grad_poisson(
+  palette = "cool",
+  reverse = FALSE,
+  n_steps = 256,
+  ...
+)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes, or selection
 of colour names from pois_cols}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
+
+\item{n_steps}{Number of steps in gradient}
 
 \item{...}{Additional arguments passed to scale_color_gradientn()}
 }

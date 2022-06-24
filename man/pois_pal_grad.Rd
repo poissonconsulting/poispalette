@@ -4,10 +4,10 @@
 \alias{pois_pal_grad}
 \title{Return interpolated color gradient for a continuous poisson colour palette}
 \usage{
-pois_pal_grad(n = 256, palette, reverse = FALSE)
+pois_pal_grad(n_steps = 256, palette, reverse = FALSE)
 }
 \arguments{
-\item{n}{Number of steps in gradient}
+\item{n_steps}{Number of steps in gradient}
 
 \item{palette}{Character name of palette in pois_palettes}
 
