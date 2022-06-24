@@ -18,7 +18,6 @@ test_that("pois_pal_disc works", {
   expect_error(pois_pal_disc(palette = c("too", "many")), "Value of palette must be length 1")
 })
 
-
 test_that("pois_pal_grad works", {
   expect_error(pois_pal_grad(palette = "not a palette"), "Name of palette not found in `.pois_palettes`")
   expect_error(pois_pal_grad(palette = c("not", "colours")), "Colours in palette not found in `.pois_colours`")
@@ -28,6 +27,9 @@ test_that("functions produce scale objects", {
   scale <- scale_colour_disc_poisson()
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
   
+  scale <- scale_fill_disc_poisson()
+  expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
+  
   scale <- scale_colour_grad_poisson("cool")
   expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
   
@@ -35,3 +37,11 @@ test_that("functions produce scale objects", {
   expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
 })
 
+test_that("chk_hex works", {
+
+  good <- c("#112233", "#FFEEDD")
+  expect_identical(chk_hex(good), good)
+  
+  bad <- c("112233", "#FFEEDDD", "#FFEEDDX", "#112233")
+  expect_error(chk_hex(bad), "Ivalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX.")
+})
