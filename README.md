@@ -44,6 +44,7 @@ install.packages("poispalette")
 library(ggplot2)
 #> Warning: package 'ggplot2' was built under R version 4.1.2
 
+# discrete palettes
 ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
   poispalette::scale_colour_disc_poisson()
@@ -68,12 +69,34 @@ ggplot(poispalette::points, aes(x = X)) +
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
-ggplot(poispalette::points, aes(x = X, y = Y)) +
-  geom_point(aes(colour = RandomX), size = 2) +
-  poispalette::scale_colour_grad_poisson(palette = c("yellow", "red", "dark blue"))
+points <- poispalette::points
+points <- points[points$ID %in% c("A", "B", "C", "D"), ]
+
+my_palette <- c("#8ECAE6", "#219EBC", "#023047", "#FFB703")
+
+ggplot(points, aes(x = RandomX, y = RandomY)) +
+  geom_point(aes(colour = ID), size = 4) +
+  poispalette::scale_colour_disc_poisson(palette = my_palette)
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
+
+``` r
+# gradient palettes
+ggplot(poispalette::points, aes(x = X, y = Y)) +
+  geom_point(aes(colour = RandomX), size = 2) +
+  poispalette::scale_colour_grad_poisson(palette = "cool")
+```
+
+<img src="man/figures/README-example-5.png" width="100%" />
+
+``` r
+ggplot(points, aes(x = X, y = Y)) +
+  geom_point(aes(colour = RandomX), size = 2) +
+  poispalette::scale_colour_grad_poisson(palette = c("#FFF200","#C70000", "#7C2BB3"))
+```
+
+<img src="man/figures/README-example-6.png" width="100%" />
 
 ## Contribution
 
