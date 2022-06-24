@@ -56,12 +56,16 @@ pois_pal_custom <- function(palette, reverse = FALSE, ...) {
 
 #' Return interpolated color gradient for a continuous poisson colour palette
 #'
-#' @param n_steps Number of steps in gradient
 #' @param palette Character name of palette in pois_palettes
 #' @param reverse Boolean indicating whether the palette should be reversed
+#' @param n_steps Number of steps in gradient
+#' @param n_col Number of colours to subset from the palette (optional)
 #'
 #' @export
-pois_pal_grad <- function(n_steps = 256, palette, reverse = FALSE){
+pois_pal_grad <- function(palette, 
+                          reverse = FALSE,
+                          n_steps = 256,
+                          n_col = getOption("poispalette.n_col", NULL)){
   chk_numeric(n_steps)
   chk_s3_class(palette, "character")
   chk_flag(reverse)
@@ -72,6 +76,14 @@ pois_pal_grad <- function(n_steps = 256, palette, reverse = FALSE){
   } else {
     chk_hex(palette)
   }
+  
+  if(!is.null(n_col)) {
+    chk_numeric(n_col)
+    if(n_col < 2) err("Argument `n_col` must be 2 or greater.")
+    if(n_col < length(palette)) err("Argument `n_col` is less than number of colours in palette.")
+  
+    palette <- palette[1:n_col]
+    }
   
   if (reverse) palette <- rev(palette)
   
