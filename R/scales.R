@@ -38,7 +38,12 @@ scale_colour_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
 #' @export
 scale_fill_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
 
-  pal <- pois_pal_disc(palette = palette, reverse = reverse)
+  if(length(palette) == 1L){
+    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
+  } else {
+    pal <- pois_pal_custom(palette = palette, reverse = reverse)
+  }
+  
   ggplot2::discrete_scale("fill", paste0("pois_", palette), palette = pal, ...)
 }
 
