@@ -10,14 +10,14 @@ pois_cols <- function(cols = NULL) {
   if (is.null(cols)) {
     return(.pois_colours)
   }
-
+  
   chk_s3_class(cols, "character")
   if (!all(cols %in% names(.pois_colours))) err("One or more values of cols not in pois_colours")
-
+  
   .pois_colours[cols]
 }
 
-#' Return function to interpolate a poisson colour palette
+#' Return function to subset poisson colour palette
 #'
 #' @param palette Character name of palette in pois_palettes
 #' @param reverse Boolean indicating whether the palette should be reversed
@@ -34,7 +34,7 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   palette <- pois_cols(.pois_palettes[[palette]])
   if (reverse) palette <- rev(palette)
   
-  subset_palette(palette)
+  make_palette_subsetter(palette)
 }
 
 #' Return function to subset a user provided colour palette
@@ -51,7 +51,7 @@ pois_pal_custom <- function(palette, reverse = FALSE, ...) {
   
   if (reverse) palette <- rev(palette)
   
-  subset_palette(palette)
+  make_palette_subsetter(palette)
 }
 
 #' Return interpolated color gradient for a continuous poisson colour palette
@@ -82,61 +82,4 @@ pois_pal_grad <- function(n = 256, palette, reverse = FALSE){
   grad$correctLightness()
   grad$colors(n)
   grad$eval()
-}
-
-#' discrete colour scale constructor for poisson colours
-#'
-#' @param palette Character name of palette in pois_palettes
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to discrete_scale()
-#' @export
-scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "colours"),
-                                      reverse = FALSE, ...) {
-  
-  if(length(palette) == 1L){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
-  } else {
-    pal <- pois_pal_custom(palette = palette, reverse = reverse)
-  }
-  
-  ggplot2::discrete_scale("colour", paste0("pois_", palette), palette = pal, ...)
-}
-
-#' gradient colour scale constructor for poisson colours
-#'
-#' @param palette Character name of palette in pois_palettes, or selection 
-#' of colour names from pois_cols
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to scale_color_gradientn()
-#' @export
-scale_colour_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
-  
-  pal <- pois_pal_grad(palette = palette, reverse = reverse)
-  ggplot2::scale_color_gradientn(colours = pal, ...)
-}
-
-#' discrete fill scale constructor for poisson colours
-#'
-#' @param palette Character name of palette in pois_palettes
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to discrete_scale()
-#'            
-#' @export
-scale_fill_disc_poisson <- function(palette = "colours", reverse = FALSE, ...) {
-
-  pal <- pois_pal_disc(palette = palette, reverse = reverse)
-  ggplot2::discrete_scale("fill", paste0("pois_", palette), palette = pal, ...)
-}
-
-#' Gradient fill scale constructor for poisson colours
-#'
-#' @param palette Character name of palette in pois_palettes, or selection 
-#' of colour names from pois_cols
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to scale_color_gradientn()
-#' @export
-scale_fill_grad_poisson <- function(palette = "cool", reverse = FALSE, ...) {
-  
-  pal <- pois_pal_grad(256, palette = palette, reverse = reverse)
-  ggplot2::scale_fill_gradientn(colours = pal, ...)
 }
