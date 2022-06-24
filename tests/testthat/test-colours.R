@@ -34,3 +34,4 @@ test_that("functions produce scale objects", {
   scale <- scale_fill_grad_poisson("hot")
   expect_identical(class(scale), c("ScaleContinuous", "Scale", "ggproto", "gg"))
 })
+

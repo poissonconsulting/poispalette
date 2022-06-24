@@ -4,7 +4,11 @@
 \alias{scale_colour_disc_poisson}
 \title{discrete colour scale constructor for poisson colours}
 \usage{
-scale_colour_disc_poisson(palette = "colours", reverse = FALSE, ...)
+scale_colour_disc_poisson(
+  palette = getOption("poispalette.colours", "colours"),
+  reverse = FALSE,
+  ...
+)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
