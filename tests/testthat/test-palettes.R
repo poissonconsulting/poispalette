@@ -13,8 +13,10 @@ test_that("chk_hex works", {
   expect_identical(chk_hex(good), good)
   
   bad <- c("112233", "#FFEEDDD", "#FFEEDDX", "#112233")
-  expect_error(chk_hex(bad),
-               "Ivalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX.")
+  expect_error(
+    chk_hex(bad),
+    "Ivalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
+    )
 })
 
 test_that("pois_pal_disc works", {
@@ -22,20 +24,27 @@ test_that("pois_pal_disc works", {
   expect_identical(palette, pois_cols() |> as.vector())
   
   palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
-  expect_identical(palette, pois_cols() %>%
-                     as.vector() %>% rev())
+  expect_identical(palette, pois_cols() %>% as.vector() %>% rev())
   
-  expect_error(pois_pal_disc(palette = "not a palatte"),
-               "Name of palette not found in `.pois_palettes`")
-  expect_error(pois_pal_disc(palette = c("too", "many")),
-               "Value of palette must be length 1")
+  expect_error(
+    pois_pal_disc(palette = "not a palatte"),
+    "Name of palette not found in `.pois_palettes`"
+    )
+  expect_error(
+    pois_pal_disc(palette = c("too", "many")),
+    "Value of palette must be length 1"
+    )
 })
 
 test_that("pois_pal_grad works", {
-  expect_error(pois_pal_grad(palette = "not a palette"),
-               "Name of palette not found in `.pois_palettes`")
-  expect_error(pois_pal_grad(palette = c("not", "colours")),
-               "Ivalid hex codes detected: not, colours.")
+  expect_error(
+    pois_pal_grad(palette = "not a palette"),
+    "Name of palette not found in `.pois_palettes`"
+    )
+  expect_error(
+    pois_pal_grad(palette = c("not", "colours")),
+    "Ivalid hex codes detected: not, colours."
+    )
   
   expect_identical(
     pois_pal_grad("cool")[1:12],
