@@ -1,7 +1,5 @@
 test_that("pois_cols works", {
-  colours_fun <- pois_cols()[1:2]
-  colours_data <- poispalette:::.pois_colours[1:2]
-  expect_identical(colours_fun, colours_data)
+  expect_identical(pois_cols(), poispalette:::.pois_colours)
   
   expect_error(pois_cols(colours = "not a colour"),
                "One or more values of colours not in .pois_colours")
@@ -21,10 +19,18 @@ test_that("chk_hex works", {
 
 test_that("pois_pal_disc works", {
   palette <- pois_pal_disc(palette = "discrete")(10)
-  expect_identical(palette, pois_cols() |> as.vector())
+  expect_identical(
+    palette,
+    c("#000000", "#053296", "#E84D22", "#F7B500", "#00706C", "#821C65", 
+      "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D")
+  )
   
   palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
-  expect_identical(palette, pois_cols() %>% as.vector() %>% rev())
+  expect_identical(
+    palette,
+    c("#7D7D7D", "#D888CF", "#90BDE5", "#63BB42", "#821C65", "#00706C", 
+      "#F7B500", "#E84D22", "#053296", "#000000")
+    )
   
   expect_error(
     pois_pal_disc(palette = "not a palatte"),
