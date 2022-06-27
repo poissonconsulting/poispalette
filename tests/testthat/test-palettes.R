@@ -3,7 +3,7 @@ test_that("pois_cols works", {
   colours_data <- poispalette:::.pois_colours[1:2]
   expect_identical(colours_fun, colours_data)
   
-  expect_error(pois_cols(cols = "not a colour"), "One or more values of cols not in pois_colours")
+  expect_error(pois_cols(colours = "not a colour"), "One or more values of colours not in .pois_colours")
 })
 
 test_that("chk_hex works", {
@@ -17,10 +17,10 @@ test_that("chk_hex works", {
 
 test_that("pois_pal_disc works", {
   palette <- pois_pal_disc(palette = "colours")(10)
-  expect_identical(palette, pois_cols()[.pois_palettes$colours] %>% as.vector())
+  expect_identical(palette, pois_cols() |> as.vector())
   
   palette <- pois_pal_disc(palette = "colours", reverse = TRUE)(10)
-  expect_identical(palette, pois_cols()[.pois_palettes$colours] %>%
+  expect_identical(palette, pois_cols() %>%
                      as.vector() %>% rev())
   
   expect_error(pois_pal_disc(palette = "not a palatte"), "Name of palette not found in `.pois_palettes`")
