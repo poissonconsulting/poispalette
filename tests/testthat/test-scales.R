@@ -1,5 +1,5 @@
 
-test_that("functions produce scale objects", {
+test_that("scale functions produce objects", {
   scale <- scale_colour_disc_poisson()
   expect_identical(class(scale), c("ScaleDiscrete", "Scale", "ggproto", "gg"))
   
