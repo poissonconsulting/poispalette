@@ -8,8 +8,7 @@
 #' pois_cols()
 pois_cols <- function(colours = NULL) {
   if (is.null(colours)) {
-    return(.pois_colours[c("black", "blue", "red", "yellow", "aqua", "purple",
-                           "green", "light blue", "orchid", "grey")])
+    return(.pois_colours)
   }
   
   chk_s3_class(colours, "character")
