@@ -1,20 +1,42 @@
 #' poisson colours
 #'
-#' @param cols Character names of Poisson colours
-#' @return a named vector of hex colours
+#' @param colours Character names of Poisson colours
+#' @return A named vector of hex colours
 #' @export
 #'
 #' @examples
 #' pois_cols()
-pois_cols <- function(cols = NULL) {
-  if (is.null(cols)) {
-    return(.pois_colours)
+pois_cols <- function(colours = NULL) {
+  if (is.null(colours)) {
+    return(.pois_colours[c("black", "blue", "red", "yellow", "aqua", "purple",
+                           "green", "light blue", "orchid", "grey")])
   }
   
-  chk_s3_class(cols, "character")
-  if (!all(cols %in% names(.pois_colours))) err("One or more values of cols not in pois_colours")
+  chk_s3_class(colours, "character")
+  if (!all(colours %in% names(.pois_colours))) err("One or more values of colours not in .pois_colours")
   
-  .pois_colours[cols]
+  .pois_colours[colours]
+}
+
+#' poisson palettes
+#'
+#' @param palette Character names of Poisson palettes
+#' @return A named vector of hex colours
+#' @export
+#'
+#' @examples
+#' pois_pal()
+pois_pal <- function(palette = NULL) {
+  if (is.null(palette)) {
+    return(.pois_palettes["colours"][[1]])
+  }
+  
+  chk_s3_class(palette, "character")
+  chk_scalar(palette)
+  if (!all(palette %in% names(.pois_palettes))) err("One or more values of palette not in .pois_palettes")
+  
+  
+  .pois_palettes[palette][[1]]
 }
 
 #' Return function to subset poisson colour palette
@@ -31,7 +53,7 @@ pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
   
-  palette <- pois_cols(.pois_palettes[[palette]])
+  palette <- pois_pal(palette)
   if (reverse) palette <- rev(palette)
   
   make_palette_subsetter(palette)
@@ -72,7 +94,7 @@ pois_pal_grad <- function(palette,
   
   if(all(length(palette) == 1 & !vld_hex(palette))) {
     if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
-    palette <- pois_cols(.pois_palettes[[palette]])
+    palette <- pois_pal(palette)
   } else {
     chk_hex(palette)
   }
