@@ -16,10 +16,10 @@ test_that("chk_hex works", {
 })
 
 test_that("pois_pal_disc works", {
-  palette <- pois_pal_disc(palette = "colours")(10)
+  palette <- pois_pal_disc(palette = "discrete")(10)
   expect_identical(palette, pois_cols() |> as.vector())
   
-  palette <- pois_pal_disc(palette = "colours", reverse = TRUE)(10)
+  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
   expect_identical(palette, pois_cols() %>%
                      as.vector() %>% rev())
   

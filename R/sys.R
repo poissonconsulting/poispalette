@@ -15,7 +15,7 @@
 
 
 .pois_palettes <- list(
-  colours = .pois_colours[c("black", "blue", "red", "yellow", "aqua", "purple",
+  discrete = .pois_colours[c("black", "blue", "red", "yellow", "aqua", "purple",
                              "green", "light blue", "orchid", "grey")],
   cool = c("#CAF0F8", "#90E0EF", "#00B4D8", "#0077B6", "#03045E"),
   hot = c("#FFF708", "#F48C06", "#D00000", "#6A040F", "#410865")

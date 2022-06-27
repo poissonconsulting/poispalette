@@ -4,7 +4,7 @@
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #' @export
-scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "colours"),
+scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "discrete"),
                                       reverse = FALSE, ...) {
   
   if(length(palette) == 1L){
@@ -23,7 +23,7 @@ scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours",
 #' @param ... Additional arguments passed to discrete_scale()
 #'            
 #' @export
-scale_fill_disc_poisson <- function(palette = getOption("poispalette.colours", "colours"), reverse = FALSE, ...) {
+scale_fill_disc_poisson <- function(palette = getOption("poispalette.colours", "discrete"), reverse = FALSE, ...) {
 
   if(length(palette) == 1L){
     pal <- pois_pal_disc(palette = palette, reverse = reverse)    

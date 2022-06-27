@@ -28,7 +28,7 @@ pois_cols <- function(colours = NULL) {
 #' pois_pal()
 pois_pal <- function(palette = NULL) {
   if (is.null(palette)) {
-    return(.pois_palettes["colours"][[1]])
+    return(.pois_palettes["discrete"][[1]])
   }
   
   chk_s3_class(palette, "character")
@@ -46,7 +46,7 @@ pois_pal <- function(palette = NULL) {
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal_disc <- function(palette = "colours", reverse = FALSE, ...) {
+pois_pal_disc <- function(palette = "discrete", reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
