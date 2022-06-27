@@ -5,14 +5,14 @@
 \title{Return interpolated color gradient for a continuous poisson colour palette}
 \usage{
 pois_pal_grad(
-  palette,
+  palette = "cool",
   reverse = FALSE,
   n_steps = 256,
   n_col = getOption("poispalette.n_col", NULL)
 )
 }
 \arguments{
-\item{palette}{Character name of palette in pois_palettes}
+\item{palette}{Character name of palette in pois_palettes, See \code{pos_pal()} for palette options.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

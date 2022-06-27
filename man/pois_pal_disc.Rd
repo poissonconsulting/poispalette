@@ -7,7 +7,7 @@
 pois_pal_disc(palette = "discrete", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in pois_palettes}
+\item{palette}{Character name of palette. See \code{pos_pal()} for palette options.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

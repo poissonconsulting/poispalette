@@ -19,7 +19,7 @@ pois_cols <- function(colours = NULL) {
 
 #' poisson palettes
 #'
-#' @param palette Character names of Poisson palettes
+#' @param palette Character names of Poisson palettes. One of 'discrete', 'hot', 'cool'.
 #' @return A named vector of hex colours
 #' @export
 #'
@@ -40,7 +40,7 @@ pois_pal <- function(palette = NULL) {
 
 #' Return function to subset poisson colour palette
 #'
-#' @param palette Character name of palette in pois_palettes
+#' @param palette Character name of palette. See `pos_pal()` for palette options.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
@@ -77,7 +77,7 @@ pois_pal_custom <- function(palette, reverse = FALSE, ...) {
 
 #' Return interpolated color gradient for a continuous poisson colour palette
 #'
-#' @param palette Character name of palette in pois_palettes
+#' @param palette Character name of palette in pois_palettes, See `pos_pal()` for palette options.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param n_steps Number of steps in gradient
 #' @param n_col Number of colours to subset from the palette (optional)

@@ -7,7 +7,7 @@
 pois_pal(palette = NULL)
 }
 \arguments{
-\item{palette}{Character names of Poisson palettes}
+\item{palette}{Character names of Poisson palettes. One of 'discrete', 'hot', 'cool'.}
 }
 \value{
 A named vector of hex colours
