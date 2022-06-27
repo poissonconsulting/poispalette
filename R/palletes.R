@@ -84,7 +84,7 @@ pois_pal_custom <- function(palette, reverse = FALSE, ...) {
 #' @param n_col Number of colours to subset from the palette (optional)
 #'
 #' @export
-pois_pal_grad <- function(palette, 
+pois_pal_grad <- function(palette = "cool", 
                           reverse = FALSE,
                           n_steps = 256,
                           n_col = getOption("poispalette.n_col", NULL)){
