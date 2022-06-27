@@ -29,74 +29,46 @@ To install the latest development version from
 remotes::install_github("poissonconsulting/poispalette")
 ```
 
-To install the latest developmental release from the Poisson drat
-[repository](https://github.com/poissonconsulting/drat)
+## Demonstration
+
+Retrieve Poisson colours and palettes
 
 ``` r
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("poispalette")
+library(poispalette)
+
+pois_pal("discrete")
+#>      black       blue        red     yellow       aqua     purple      green 
+#>  "#000000"  "#053296"  "#E84D22"  "#F7B500"  "#00706C"  "#821C65"  "#63BB42" 
+#> light blue     orchid       grey 
+#>  "#90BDE5"  "#D888CF"  "#7D7D7D"
+
+pois_cols(c("red", "yellow"))
+#>       red    yellow 
+#> "#E84D22" "#F7B500"
 ```
 
-## Demonstration
+Plot discrete scales
 
 ``` r
 library(ggplot2)
 #> Warning: package 'ggplot2' was built under R version 4.1.2
 
-# discrete palettes
-ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
+ggplot2::ggplot(poispalette::points, aes(x = RandomX, y = RandomY)) +
   geom_point(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson()
+  scale_colour_disc_poisson()
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+Plot gradient scales
 
 ``` r
-ggplot(poispalette::lines, aes(x = DateTimeData, y = Value)) +
-  geom_line(aes(colour = ID), size = 2) +
-  poispalette::scale_colour_disc_poisson()
-```
-
-<img src="man/figures/README-example-2.png" width="100%" />
-
-``` r
-ggplot(poispalette::points, aes(x = X)) +
-  geom_histogram(aes(fill = ID), binwidth = 30) +
-  poispalette::scale_fill_disc_poisson()
-```
-
-<img src="man/figures/README-example-3.png" width="100%" />
-
-``` r
-points <- poispalette::points
-points <- points[points$ID %in% c("A", "B", "C", "D"), ]
-
-my_palette <- c("#8ECAE6", "#219EBC", "#023047", "#FFB703")
-
-ggplot(points, aes(x = RandomX, y = RandomY)) +
-  geom_point(aes(colour = ID), size = 4) +
-  poispalette::scale_colour_disc_poisson(palette = my_palette)
-```
-
-<img src="man/figures/README-example-4.png" width="100%" />
-
-``` r
-# gradient palettes
-ggplot(poispalette::points, aes(x = X, y = Y)) +
+ggplot2::ggplot(poispalette::points, aes(x = X, y = Y)) +
   geom_point(aes(colour = RandomX), size = 2) +
-  poispalette::scale_colour_grad_poisson(palette = "cool")
+  scale_colour_grad_poisson(palette = "cool")
 ```
 
-<img src="man/figures/README-example-5.png" width="100%" />
-
-``` r
-ggplot(points, aes(x = X, y = Y)) +
-  geom_point(aes(colour = RandomX), size = 2) +
-  poispalette::scale_colour_grad_poisson(palette = c("#FFF200","#C70000", "#7C2BB3"))
-```
-
-<img src="man/figures/README-example-6.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ## Contribution
 

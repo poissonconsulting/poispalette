@@ -5,7 +5,7 @@
 \title{discrete fill scale constructor for poisson colours}
 \usage{
 scale_fill_disc_poisson(
-  palette = getOption("poispalette.colours", "colours"),
+  palette = getOption("poispalette.colours", "discrete"),
   reverse = FALSE,
   ...
 )

@@ -4,7 +4,7 @@
 \alias{pois_pal_disc}
 \title{Return function to subset poisson colour palette}
 \usage{
-pois_pal_disc(palette = "colours", reverse = FALSE, ...)
+pois_pal_disc(palette = "discrete", reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
