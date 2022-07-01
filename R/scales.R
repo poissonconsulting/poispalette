@@ -1,16 +1,17 @@
 #' discrete colour scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
+#' @param col_mapping A named character vector for matching poisson colour names to data values.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #' @export
 scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "discrete"),
-                                      reverse = FALSE, ...) {
+                                      col_mapping = NULL, reverse = FALSE, ...) {
   
-  if(length(palette) == 1L & !vld_hex(palette)){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
+  if(all(length(palette) == 1L & !vld_hex(palette))){
+    pal <- pois_pal_disc(palette = palette, reverse = reverse, col_mapping = col_mapping)    
   } else {
-    pal <- pois_pal_custom(palette = palette, reverse = reverse)
+    pal <- pois_pal_custom(palette = palette, reverse = reverse, col_mapping = col_mapping)
   }
   
   ggplot2::discrete_scale("colour", paste0("pois_", palette), palette = pal, ...)

@@ -41,11 +41,12 @@ pois_pal <- function(palette = NULL) {
 #' Return function to subset poisson colour palette
 #'
 #' @param palette Character name of palette. See `pos_pal()` for palette options.
+#' @param col_mapping A named character vector for matching poisson colour names to data values.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal_disc <- function(palette = "discrete", reverse = FALSE, ...) {
+pois_pal_disc <- function(palette = "discrete", col_mapping = NULL, reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
@@ -54,8 +55,28 @@ pois_pal_disc <- function(palette = "discrete", reverse = FALSE, ...) {
   
   palette <- pois_pal(palette)
   if (reverse) palette <- rev(palette)
+
   
-  make_palette_subsetter(palette)
+  if (!is.null(col_mapping)){
+    chk_character(col_mapping)
+    chk_named(col_mapping)
+    if(!all(col_mapping %in% names(palette))) err("All values in col_mapping must be in chosen pallete." )
+    
+    palette <- data.frame(col_name = names(palette), col = as.vector(palette))
+    col_mapping <- data.frame(col_name = as.vector(col_mapping), new_col_name = names(col_mapping))
+    col_mapping$order <- 1:nrow(col_mapping)
+    
+    pal_data <- merge(col_mapping, palette, by = "col_name")
+    pal_data <- pal_data[order(pal_data$order), ]
+    
+    palette <- pal_data$col
+    names(palette) <- pal_data$new_col_name
+    
+  } else {
+    palette <- as.vector(palette)
+  }
+  
+   make_palette_subsetter(palette)
 }
 
 #' Return function to subset a user provided colour palette
