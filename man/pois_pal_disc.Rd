@@ -4,10 +4,12 @@
 \alias{pois_pal_disc}
 \title{Return function to subset poisson colour palette}
 \usage{
-pois_pal_disc(palette = "discrete", reverse = FALSE, ...)
+pois_pal_disc(palette = "discrete", col_mapping = NULL, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette. See \code{pos_pal()} for palette options.}
+
+\item{col_mapping}{A named character vector for matching poisson colour names to data values.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

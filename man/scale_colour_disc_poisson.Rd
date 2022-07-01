@@ -6,12 +6,15 @@
 \usage{
 scale_colour_disc_poisson(
   palette = getOption("poispalette.colours", "discrete"),
+  col_mapping = NULL,
   reverse = FALSE,
   ...
 )
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
+
+\item{col_mapping}{A named character vector for matching poisson colour names to data values.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
