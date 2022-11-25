@@ -7,6 +7,7 @@
 scale_fill_disc_poisson(
   ...,
   palette = getOption("poispalette.colours", "discrete"),
+  order = NULL,
   reverse = FALSE
 )
 }
@@ -14,6 +15,8 @@ scale_fill_disc_poisson(
 \item{...}{Additional arguments passed to discrete_scale()}
 
 \item{palette}{Character name of palette in pois_palettes}
+
+\item{order}{A numeric or character vector indicating the order of colours in the palette. Can be a subset.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 }

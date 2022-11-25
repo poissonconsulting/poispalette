@@ -41,18 +41,37 @@ pois_pal <- function(palette = NULL) {
 #' Return function to subset poisson colour palette
 #'
 #' @param palette Character name of palette. See `pos_pal()` for palette options.
+#' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal_disc <- function(palette = "discrete", reverse = FALSE, ...) {
+pois_pal_disc <- function(palette = "discrete", order = NULL, reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   
   if (!length(palette) == 1L) err("Value of palette must be length 1")
   if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
   
+  pal_name <- palette  
   palette <- pois_pal(palette)
+  
+  if(!is.null(order)){
+    chkor_vld(vld_character(order), vld_numeric(order))
+    
+    if(inherits(order, "character")) {
+      if(!all(order %in% names(palette))) err("All colours in `order` must match colour names in palette `", pal_name, "`.")
+      order <- which(names(palette) %in% order)
+    }
+    
+    if(inherits(order, "numeric")) {
+      if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
+    }
+    
+    palette <- c(palette[order], palette)
+    palette <- palette[unique(names(palette))] 
+  }
+  
   if (reverse) palette <- rev(palette)
   
   make_palette_subsetter(palette)
@@ -61,14 +80,32 @@ pois_pal_disc <- function(palette = "discrete", reverse = FALSE, ...) {
 #' Return function to subset a user provided colour palette
 #'
 #' @param palette Character name of palette in pois_palettes
+#' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colourRampPalette()
 #'
 #' @export
-pois_pal_custom <- function(palette, reverse = FALSE, ...) {
+pois_pal_custom <- function(palette, order = NULL, reverse = FALSE, ...) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
   chk_hex(palette)
+  
+  if(!is.null(order)){
+    chkor_vld(vld_character(order), vld_numeric(order))
+    
+    if(inherits(order, "character")) {
+      chk_hex(order)
+      if(!all(order %in% palette)) err("All colours in `order` must match hexidecimal codes in palette.")
+      order <-  match(order, palette)
+      
+    }
+    
+    if(inherits(order, "numeric")) {
+      if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
+    }
+    
+    palette <- unique(c(palette[order], palette))
+  }
   
   if (reverse) palette <- rev(palette)
   

@@ -4,10 +4,12 @@
 \alias{pois_pal_disc}
 \title{Return function to subset poisson colour palette}
 \usage{
-pois_pal_disc(palette = "discrete", reverse = FALSE, ...)
+pois_pal_disc(palette = "discrete", order = NULL, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette. See \code{pos_pal()} for palette options.}
+
+\item{order}{A numeric or character vector indicating the order of colours in the palette. Can be a subset.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

@@ -4,10 +4,12 @@
 \alias{pois_pal_custom}
 \title{Return function to subset a user provided colour palette}
 \usage{
-pois_pal_custom(palette, reverse = FALSE, ...)
+pois_pal_custom(palette, order = NULL, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in pois_palettes}
+
+\item{order}{A numeric or character vector indicating the order of colours in the palette. Can be a subset.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

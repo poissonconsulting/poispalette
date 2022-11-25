@@ -1,17 +1,19 @@
 #' discrete colour scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
+#' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #' @export
 scale_colour_disc_poisson <- function(
     ...,
     palette = getOption("poispalette.colours", "discrete"),
+    order = NULL,
     reverse = FALSE
     ) {
   
   if(length(palette) == 1L & !vld_hex(palette)){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
+    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
@@ -22,6 +24,7 @@ scale_colour_disc_poisson <- function(
 #' discrete fill scale constructor for poisson colours
 #'
 #' @param palette Character name of palette in pois_palettes
+#' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #'            
@@ -29,11 +32,12 @@ scale_colour_disc_poisson <- function(
 scale_fill_disc_poisson <- function(
     ...,
     palette = getOption("poispalette.colours", "discrete"),
+    order = NULL,
     reverse = FALSE
     ){
 
   if(length(palette) == 1L & !vld_hex(palette)){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse)    
+    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
