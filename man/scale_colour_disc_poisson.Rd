@@ -2,6 +2,7 @@
 % Please edit documentation in R/scales.R
 \name{scale_colour_disc_poisson}
 \alias{scale_colour_disc_poisson}
+\alias{scale_color_disc_poisson}
 \title{discrete colour scale constructor for poisson colours}
 \usage{
 scale_colour_disc_poisson(

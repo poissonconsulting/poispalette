@@ -2,6 +2,7 @@
 % Please edit documentation in R/scales.R
 \name{scale_colour_grad_poisson}
 \alias{scale_colour_grad_poisson}
+\alias{scale_color_grad_poisson}
 \title{gradient colour scale constructor for poisson colours}
 \usage{
 scale_colour_grad_poisson(

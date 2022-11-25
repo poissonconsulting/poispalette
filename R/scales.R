@@ -82,3 +82,13 @@ scale_fill_grad_poisson <- function(
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   ggplot2::scale_fill_gradientn(colours = pal, ...)
 }
+
+#' @export
+#' @rdname scale_colour_grad_poisson
+#' @usage NULL
+scale_color_grad_poisson <- scale_colour_grad_poisson
+
+#' @export
+#' @rdname scale_colour_disc_poisson
+#' @usage NULL
+scale_color_disc_poisson <- scale_colour_disc_poisson
