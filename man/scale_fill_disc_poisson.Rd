@@ -5,17 +5,17 @@
 \title{discrete fill scale constructor for poisson colours}
 \usage{
 scale_fill_disc_poisson(
+  ...,
   palette = getOption("poispalette.colours", "discrete"),
-  reverse = FALSE,
-  ...
+  reverse = FALSE
 )
 }
 \arguments{
+\item{...}{Additional arguments passed to discrete_scale()}
+
 \item{palette}{Character name of palette in pois_palettes}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
-
-\item{...}{Additional arguments passed to discrete_scale()}
 }
 \description{
 discrete fill scale constructor for poisson colours

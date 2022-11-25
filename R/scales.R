@@ -4,8 +4,11 @@
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
 #' @export
-scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours", "discrete"),
-                                      reverse = FALSE, ...) {
+scale_colour_disc_poisson <- function(
+    ...,
+    palette = getOption("poispalette.colours", "discrete"),
+    reverse = FALSE
+    ) {
   
   if(length(palette) == 1L & !vld_hex(palette)){
     pal <- pois_pal_disc(palette = palette, reverse = reverse)    
@@ -23,7 +26,11 @@ scale_colour_disc_poisson <- function(palette = getOption("poispalette.colours",
 #' @param ... Additional arguments passed to discrete_scale()
 #'            
 #' @export
-scale_fill_disc_poisson <- function(palette = getOption("poispalette.colours", "discrete"), reverse = FALSE, ...) {
+scale_fill_disc_poisson <- function(
+    ...,
+    palette = getOption("poispalette.colours", "discrete"),
+    reverse = FALSE
+    ){
 
   if(length(palette) == 1L & !vld_hex(palette)){
     pal <- pois_pal_disc(palette = palette, reverse = reverse)    
@@ -43,11 +50,13 @@ scale_fill_disc_poisson <- function(palette = getOption("poispalette.colours", "
 #' @param n_col Number of colours to subset from the palette (optional)
 #' @param ... Additional arguments passed to scale_color_gradientn()
 #' @export
-scale_colour_grad_poisson <- function(palette = getOption("poispalette.gradient", "cool"),
-                                      reverse = FALSE,
-                                      n_steps = 256,
-                                      n_col = getOption("poispalette.n_col", NULL),
-                                      ...) {
+scale_colour_grad_poisson <- function(
+    ..., 
+    palette = getOption("poispalette.gradient", "cool"),
+    reverse = FALSE,
+    n_steps = 256,
+    n_col = getOption("poispalette.n_col", NULL)
+    ){
   
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   ggplot2::scale_color_gradientn(colours = pal, ...)
@@ -62,11 +71,13 @@ scale_colour_grad_poisson <- function(palette = getOption("poispalette.gradient"
 #' @param n_col Number of colours to subset from the palette (optional)
 #' @param ... Additional arguments passed to scale_color_gradientn()
 #' @export
-scale_fill_grad_poisson <- function(palette = getOption("poispalette.gradient", "cool"),
-                                    reverse = FALSE,
-                                    n_steps = 256,
-                                    n_col = getOption("poispalette.n_col", NULL),
-                                    ...) {
+scale_fill_grad_poisson <- function(
+    ..., 
+    palette = getOption("poispalette.gradient", "cool"),
+    reverse = FALSE,
+    n_steps = 256,
+    n_col = getOption("poispalette.n_col", NULL)
+    ){
   
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   ggplot2::scale_fill_gradientn(colours = pal, ...)
