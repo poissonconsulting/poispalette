@@ -34,7 +34,6 @@ pois_pal <- function(palette = NULL) {
   chk_scalar(palette)
   if (!all(palette %in% names(.pois_palettes))) err("One or more values of palette not in .pois_palettes")
   
-  
   .pois_palettes[palette][[1]]
 }
 
@@ -61,12 +60,11 @@ pois_pal_disc <- function(palette = "discrete", order = NULL, reverse = FALSE, .
     
     if(inherits(order, "character")) {
       if(!all(order %in% names(palette))) err("All colours in `order` must match colour names in palette `", pal_name, "`.")
-      order <- which(names(palette) %in% order)
+      order <-  match(order, names(palette))
     }
     
-    if(inherits(order, "numeric")) {
-      if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
-    }
+    order <- as.integer(order)
+    if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
     
     palette <- c(palette[order], palette)
     palette <- palette[unique(names(palette))] 
@@ -100,9 +98,8 @@ pois_pal_custom <- function(palette, order = NULL, reverse = FALSE, ...) {
       
     }
     
-    if(inherits(order, "numeric")) {
-      if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
-    }
+    order <- as.integer(order)
+    if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
     
     palette <- unique(c(palette[order], palette))
   }

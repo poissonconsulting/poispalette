@@ -110,3 +110,48 @@ test_that("pois_pal_custom works", {
   )
   
 })
+
+test_that("test that 'order' arg in palette functions works", {
+ 
+  palette <- pois_pal_disc(order = c("red", "blue", "yellow"))(10)
+  expect_identical(
+    palette,
+    c("#E84D22", "#053296", "#F7B500", "#000000", "#00706C", "#821C65",
+      "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D")
+    )
+  
+  palette <- pois_pal_disc(order = c(3, 2, 4))(10)
+  expect_identical(
+    palette,
+    c("#E84D22", "#053296", "#F7B500", "#000000", "#00706C", "#821C65",
+      "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D")
+  )
+  
+  custom_cols <- c("#03045e", "#04055f", "#04065f", "#050760", "#050861")
+  palette <- pois_pal_custom(custom_cols, order = c("#04065f", "#050760", "#050861"))(5)
+  expect_identical(
+    palette,
+    c("#04065f", "#050760", "#050861", "#03045e", "#04055f")
+  )
+  
+  expect_error(
+    pois_pal_disc(order = c("bed", "blue", "yellow")),
+    "All colours in `order` must match colour names in palette `discrete`."
+  )
+
+  expect_error(
+    pois_pal_disc(order = c(TRUE)),
+    "At least one of the following conditions must be met:"
+  )
+  
+  expect_error(
+    pois_pal_disc(order = c(TRUE)),
+    "At least one of the following conditions must be met:"
+  )
+  
+  expect_error(
+    pois_pal_disc(order = 1:11)(10),
+    "All values of order must be within the range 1 - 10."
+  )
+  
+})
