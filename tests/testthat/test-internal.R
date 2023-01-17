@@ -1,7 +1,7 @@
 test_that("make_palette_subsetter works", {
   expect_error(
     make_palette_subsetter(pois_cols())(20),
-    "20 colours needed, but only 12 in chosen colour palette."
+    "20 colours needed, but only 11 in chosen colour palette."
   )
 })
 

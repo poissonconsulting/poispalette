@@ -8,7 +8,7 @@ test_that("pois_cols works", {
 })
 
 test_that("pois_pal works", {
-  expect_identical(pois_pal(), pois_cols()[1:10])
+  expect_identical(pois_pal(), pois_cols()[1:9])
   
   expect_error(
     pois_pal("not a pal"),
@@ -29,16 +29,16 @@ test_that("chk_hex works", {
 })
 
 test_that("pois_pal_disc works", {
-  palette <- pois_pal_disc(palette = "discrete")(10)
+  palette <- pois_pal_disc(palette = "discrete")(9)
   expect_identical(
     palette,
-    pois_cols()[1:10] |> as.vector()
+    pois_cols()[1:9] |> as.vector()
   )
   
-  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
+  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(9)
   expect_identical(
     palette,
-    pois_cols()[1:10] |> as.vector() %>% rev()
+    pois_cols()[1:9] |> as.vector() %>% rev()
     )
   
   expect_error(
@@ -95,18 +95,17 @@ test_that("pois_pal_custom works", {
 
 test_that("test that 'order' arg in palette functions works", {
  
-  palette <- pois_pal_disc(order = c("red", "blue", "yellow"))(10)
+  palette <- pois_pal_disc(order = c("red", "blue", "yellow"))(4)
   expect_identical(
     palette,
-    c("#E84D22", "#053296", "#F7B500", "#000000", "#00706C", "#821C65",
-      "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D")
+    pois_cols()[c("red", "blue", "yellow", "black")] %>% as.character()
     )
   
-  palette <- pois_pal_disc(order = c(3, 2, 4))(10)
+  
+  palette <- pois_pal_disc(order = c(3, 2, 4))(4)
   expect_identical(
     palette,
-    c("#E84D22", "#053296", "#F7B500", "#000000", "#00706C", "#821C65",
-      "#63BB42", "#90BDE5", "#D888CF", "#7D7D7D")
+    pois_cols()[c("red", "blue", "yellow", "black")] %>% as.character()
   )
   
   custom_cols <- c("#03045e", "#04055f", "#04065f", "#050760", "#050861")
@@ -132,8 +131,8 @@ test_that("test that 'order' arg in palette functions works", {
   )
   
   expect_error(
-    pois_pal_disc(order = 1:11)(10),
-    "All values of order must be within the range 1 - 10."
+    pois_pal_disc(order = 1:10)(10),
+    "All values of order must be within the range 1 - 9."
   )
   
 })

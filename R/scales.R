@@ -12,7 +12,7 @@ scale_colour_disc_poisson <- function(
     reverse = FALSE
     ) {
   
-  if(length(palette) == 1L & !vld_hex(palette)){
+  if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
@@ -36,7 +36,7 @@ scale_fill_disc_poisson <- function(
     reverse = FALSE
     ){
 
-  if(length(palette) == 1L & !vld_hex(palette)){
+  if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
