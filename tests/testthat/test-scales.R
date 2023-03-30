@@ -41,6 +41,13 @@ test_that("scale functions work with plots", {
   expect_snapshot_plot(gp, "gradient_colours")
 })
 
+test_that("scale functions accomodate NAs", {
+  expect_identical(scale_colour_disc_poisson()$call$na.value, .na_colour)
+  expect_identical(scale_fill_disc_poisson()$call$na.value, .na_colour)
+  expect_identical(scale_colour_grad_poisson()$na.value, .na_colour)
+  expect_identical(scale_fill_grad_poisson()$na.value, .na_colour)
+})
+
 
 test_that("scale naming works", {
   scale <- scale_colour_disc_poisson("new_name")
