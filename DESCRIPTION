@@ -27,3 +27,4 @@ LazyData: true
 RoxygenNote: 7.2.2.9000
 Language: en-US
 Roxygen: list(markdown = TRUE)
+Config/Needs/website: poissonconsulting/poissontemplate
