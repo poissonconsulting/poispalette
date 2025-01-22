@@ -18,3 +18,24 @@ if(FALSE) {
   testthat::snapshot_review('scales-snapshot/')
 }
 
+test_that("scale functions correctly display NA data values", {
+  points_with_na_id <- poispalette::points[1:5, ]
+  points_with_na_id$ID[5] <- NA
+  
+  gp <- ggplot2::ggplot(points_with_na_id, ggplot2::aes(x = RandomX, y = RandomY)) +
+    ggplot2::geom_col(ggplot2::aes(colour = ID, fill = ID)) +
+    scale_colour_disc_poisson() +
+    scale_fill_disc_poisson()
+  
+  expect_snapshot_plot(gp, "disc_pals_with_na")
+  
+  points_with_na_randx <- poispalette::points[1:5, ]
+  points_with_na_randx$RandomX[5] <- NA
+  
+  gp <- ggplot2::ggplot(points_with_na_randx, ggplot2::aes(x = X, y = Y)) +
+    ggplot2::geom_col(ggplot2::aes(colour = RandomX, fill = RandomX)) +
+    scale_colour_grad_poisson() +
+    scale_fill_grad_poisson()
+  
+  expect_snapshot_plot(gp, "grad_pals_with_na")
+})
