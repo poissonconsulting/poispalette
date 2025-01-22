@@ -13,11 +13,6 @@ test_that("scale functions work with plots", {
   expect_snapshot_plot(gp, "gradient_colours")
 })
 
-if(FALSE) {
-  testthat::test_file(file.path(getwd(),"tests/testthat/test-scales-snapshot.R"))
-  testthat::snapshot_review('scales-snapshot/')
-}
-
 test_that("scale functions correctly display NA data values", {
   points_with_na_id <- poispalette::points[1:5, ]
   points_with_na_id$ID[5] <- NA
@@ -27,6 +22,7 @@ test_that("scale functions correctly display NA data values", {
     scale_colour_disc_poisson() +
     scale_fill_disc_poisson()
   
+  local_edition(3)
   expect_snapshot_plot(gp, "disc_pals_with_na")
   
   points_with_na_randx <- poispalette::points[1:5, ]
@@ -39,3 +35,8 @@ test_that("scale functions correctly display NA data values", {
   
   expect_snapshot_plot(gp, "grad_pals_with_na")
 })
+
+if(FALSE) {
+  testthat::test_file(file.path(getwd(),"tests/testthat/test-scales-snapshot.R"))
+  testthat::snapshot_review('scales-snapshot/')
+}
