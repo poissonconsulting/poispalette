@@ -18,7 +18,7 @@ scale_colour_disc_poisson <- function(
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
-  ggplot2::discrete_scale("colour", paste0("pois_", palette), palette = pal, na.value = "#7F7F7F", ...)
+  ggplot2::discrete_scale(aesthetics = "colour", palette = pal, na.value = "#7F7F7F", ...)
 }
 
 #' discrete fill scale constructor for poisson colours
@@ -42,7 +42,7 @@ scale_fill_disc_poisson <- function(
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
-  ggplot2::discrete_scale("fill", paste0("pois_", palette), palette = pal, na.value = "#7F7F7F", ...)
+  ggplot2::discrete_scale(aesthetics = "fill", palette = pal, na.value = "#7F7F7F", ...)
 }
 
 #' gradient colour scale constructor for poisson colours
