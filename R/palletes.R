@@ -142,10 +142,7 @@ pois_pal_grad <- function(palette = "cool",
   
   if (reverse) palette <- rev(palette)
   
-  grad <- colorscale::chroma_scale$new()
-  grad$bezier(palette)
-  grad$scale()
-  grad$correctLightness()
-  grad$colors(n_steps)
-  grad$eval()
+  palette_interpolator <- scales::as_continuous_pal(palette)
+  palette_interpolator(seq(0, 1, by = (1/(n_steps - 1))))
+
 }
