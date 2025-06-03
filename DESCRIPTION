@@ -13,7 +13,8 @@ Depends:
 Imports:
   chk,
   ggplot2 (>= 3.5.0),
-  grDevices
+  grDevices,
+  scales
 Suggests: 
     covr,
     testthat
