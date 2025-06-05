@@ -12,6 +12,7 @@ scale_colour_disc_poisson <- function(
     reverse = FALSE
     ) {
   
+  args_add <- list(...)
   if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
