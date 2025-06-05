@@ -34,13 +34,21 @@ scale_colour_disc_poisson <- function(
     name <- c(name_args$name, name_args$scale_name)[1] # prioritizes name over scale_name
     args_add <- args_add[!names(args_add) %in% c("name", "scale_name")]
   } 
+  
   if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
-  ggplot2::discrete_scale(aesthetics = "colour", palette = pal, na.value = "#7F7F7F", ...)
+  rlang::inject(ggplot2::discrete_scale(
+    aesthetics = "colour",
+    name = name,
+    palette = pal,
+    na.value = "#7F7F7F",
+    !!!args_add 
+  ))
+  
 }
 
 #' discrete fill scale constructor for poisson colours
