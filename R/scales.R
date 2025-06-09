@@ -10,30 +10,7 @@ scale_colour_disc_poisson <- function(
     palette = getOption("poispalette.colours", "discrete"),
     order = NULL,
     reverse = FALSE
-    ) {
-  
-  args_add <- list(...)
-  
-  if (
-    length(args_add) &&
-    (any(names(args_add) == "") | is.null(names(args_add))) && # if args only unnamed, then NULL, if some named then ""
-    all(!names(args_add) %in% c("name", "scale_name"))
-    ) {
-    # take first unnamed arg and discard from ...
-    if(is.null(names(args_add))) {
-      name <- args_add[1]
-    } else {
-      name <- args_add[names(args_add) == ""][[1]]
-    }
-    args_add <- args_add[!(sapply(args_add, identical, name))]
-  }
-  
-
-  if(any(names(args_add) %in% c("name", "scale_name"))) {
-    name_args <- args_add[names(args_add) %in% c("name", "scale_name")]
-    name <- c(name_args$name, name_args$scale_name)[1] # prioritizes name over scale_name
-    args_add <- args_add[!names(args_add) %in% c("name", "scale_name")]
-  } 
+) {
   
   if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
@@ -41,12 +18,15 @@ scale_colour_disc_poisson <- function(
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
+  dot_args_user <- assign_dot_args(
+    list(...), ggplot2::discrete_scale, c("aesthetics", "palette", "na.value")
+  )
+  
   rlang::inject(ggplot2::discrete_scale(
     aesthetics = "colour",
-    name = name,
     palette = pal,
     na.value = "#7F7F7F",
-    !!!args_add 
+    !!!dot_args_user 
   ))
   
 }
