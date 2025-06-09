@@ -14,7 +14,8 @@ Imports:
   chk,
   ggplot2 (>= 3.5.0),
   grDevices,
-  scales
+  scales,
+  rlang
 Suggests: 
     covr,
     testthat
