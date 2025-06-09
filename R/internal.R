@@ -26,8 +26,9 @@ get_formals <- function(fun, negate = NULL) {
 }
 
 assign_dot_args <- function(dot_args_user, function_def, args_negate) {
+  
   chk::chk_list(dot_args_user)
-  chk::chk_vector(args_negate)
+  chk::chk_atomic(args_negate)
   
   dot_args <- get_formals(function_def, negate = args_negate)
   dot_args <- dot_args[!dot_args %in% names(dot_args_user)]
