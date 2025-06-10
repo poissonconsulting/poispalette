@@ -78,7 +78,7 @@ scale_colour_grad_poisson <- function(
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
   
   dot_args_user <- assign_dot_args(
-    list(...), ggplot2::scale_color_gradientn, c("colours", "na.value")
+    list(...), ggplot2::scale_color_gradientn, c("colours", "na.value", "space")
   )
   
   rlang::inject(ggplot2::scale_color_gradientn(
