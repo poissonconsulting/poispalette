@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/poissonconsulting/poispalette/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/poispalette/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/poispalette/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/poispalette?branch=master)
@@ -37,14 +37,14 @@ Retrieve Poisson colours and palettes
 library(poispalette)
 
 pois_pal("discrete")
-#>      black       blue        red     yellow       aqua     purple      green 
-#>  "#000000"  "#053296"  "#E84D22"  "#F7B500"  "#00706C"  "#821C65"  "#63BB42" 
-#> light blue     orchid       grey 
-#>  "#90BDE5"  "#D888CF"  "#7D7D7D"
+#>      black       blue        red     yellow     purple      green light blue 
+#>  "#000000"  "#3063A3"  "#E8613C"  "#F7B500"  "#821C65"  "#63BB42"  "#90BDE5" 
+#>     orchid       grey 
+#>  "#D888CF"  "#7D7D7D"
 
 pois_cols(c("red", "yellow"))
 #>       red    yellow 
-#> "#E84D22" "#F7B500"
+#> "#E8613C" "#F7B500"
 ```
 
 Plot discrete scales
