@@ -17,3 +17,23 @@ chk_hex <- function(x) {
   
   invisible(x)
 }
+
+get_formals <- function(fun, negate = NULL) {
+  chk::chk_function(fun)
+  formals <- fun |> formals(fun) |> names()
+  formals[!formals %in% c("scale_name", negate)]
+
+}
+
+assign_dot_args <- function(dot_args_user, function_def, args_negate) {
+  
+  chk::chk_list(dot_args_user)
+  chk::chk_atomic(args_negate)
+  
+  dot_args <- get_formals(function_def, negate = args_negate)
+  dot_args <- dot_args[!dot_args %in% names(dot_args_user)]
+  if(is.null(names(dot_args_user))) names(dot_args_user) <- rep("", length(dot_args_user))
+  names(dot_args_user)[names(dot_args_user) == ""] <- dot_args[1:sum(names(dot_args_user) == "")]
+  
+  dot_args_user
+}

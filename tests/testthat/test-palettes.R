@@ -73,9 +73,9 @@ test_that("pois_pal_grad works", {
   
   expect_identical(
     pois_pal_grad("cool", n_steps = 4),
-    c("#8ee7e6", "#3a9bc6", "#1e5095", "#03045e")
+    c("#8EE7E6", "#00B4D8", "#0077B6", "#03045E")
   )
-
+  
 })
 
 test_that("pois_pal_custom works", {
@@ -136,3 +136,4 @@ test_that("test that 'order' arg in palette functions works", {
   )
   
 })
+

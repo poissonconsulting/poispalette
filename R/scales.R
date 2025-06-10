@@ -10,7 +10,7 @@ scale_colour_disc_poisson <- function(
     palette = getOption("poispalette.colours", "discrete"),
     order = NULL,
     reverse = FALSE
-    ) {
+) {
   
   if(length(palette) == 1L & !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
@@ -18,7 +18,14 @@ scale_colour_disc_poisson <- function(
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
-  ggplot2::discrete_scale(aesthetics = "colour", palette = pal, na.value = "#7F7F7F", ...)
+  dot_args_user <- assign_dot_args(
+    list(...), ggplot2::discrete_scale, c("aesthetics", "palette", "na.value")
+  )
+  
+  rlang::inject(ggplot2::discrete_scale(
+    aesthetics = "colour", palette = pal, na.value = .na_colour, !!!dot_args_user 
+  ))
+  
 }
 
 #' discrete fill scale constructor for poisson colours
@@ -42,7 +49,13 @@ scale_fill_disc_poisson <- function(
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
   
-  ggplot2::discrete_scale(aesthetics = "fill", palette = pal, na.value = "#7F7F7F", ...)
+  dot_args_user <- assign_dot_args(
+    list(...), ggplot2::discrete_scale, c("aesthetics", "palette", "na.value")
+  )
+  
+  rlang::inject(ggplot2::discrete_scale(
+    aesthetics = "fill", palette = pal, na.value = .na_colour, !!!dot_args_user
+    ))
 }
 
 #' gradient colour scale constructor for poisson colours
@@ -63,7 +76,14 @@ scale_colour_grad_poisson <- function(
     ){
   
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
-  ggplot2::scale_color_gradientn(colours = pal, na.value = .na_colour, ...)
+  
+  dot_args_user <- assign_dot_args(
+    list(...), ggplot2::scale_color_gradientn, c("colours", "na.value", "space")
+  )
+  
+  rlang::inject(ggplot2::scale_color_gradientn(
+    colours = pal, na.value = .na_colour, !!!dot_args_user
+    ))
 }
 
 #' Gradient fill scale constructor for poisson colours
@@ -84,7 +104,14 @@ scale_fill_grad_poisson <- function(
     ){
   
   pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
-  ggplot2::scale_fill_gradientn(colours = pal, na.value = .na_colour, ...)
+  
+  dot_args_user <- assign_dot_args(
+    list(...), ggplot2::scale_fill_gradientn, c("colours", "na.value")
+  )
+  
+  rlang::inject(ggplot2::scale_fill_gradientn(
+    colours = pal, na.value = .na_colour, !!!dot_args_user
+    ))
 }
 
 #' @export
