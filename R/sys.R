@@ -2,7 +2,7 @@
   "black" = "#000000",
   "blue" = "#3063A3",
   "red" = "#E8613C",
-  "yellow" = "#F7B500",
+  "yellow" = "#F7B530",
   "purple" = "#821C65",
   "green" = "#63BB42",
   "light blue" = "#90BDE5",
