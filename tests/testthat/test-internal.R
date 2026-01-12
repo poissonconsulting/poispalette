@@ -1,7 +1,7 @@
 test_that("make_palette_subsetter works", {
   expect_error(
     make_palette_subsetter(pois_cols())(20),
-    "20 colours needed, but only 11 in chosen colour palette."
+    "20 colours needed, but only 9 in chosen colour palette."
   )
 })
 
@@ -13,9 +13,9 @@ test_that("handling of ... args", {
   
   expect_identical(
     get_formals(ggplot2::discrete_scale, negate = "super"), 
-    c("aesthetics", "palette", "name", "breaks", "labels", "limits", 
-      "expand", "na.translate", "na.value", "drop", "guide", "position", 
-      "call")
+    c("aesthetics", "palette", "name", "breaks", "minor_breaks", 
+"labels", "limits", "expand", "na.translate", "na.value", "drop", 
+"guide", "position", "fallback.palette", "call")
     )
   expect_error(get_formals(1, negate = "super"), "`fun` must be a function.")
   
