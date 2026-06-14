@@ -8,7 +8,7 @@ test_that("pois_cols works", {
 })
 
 test_that("pois_pal works", {
-  expect_identical(pois_pal(), pois_cols()[1:9])
+  expect_identical(pois_pal(), pois_cols()[1:10])
   
   expect_error(
     pois_pal("not a pal"),
@@ -29,16 +29,16 @@ test_that("chk_hex works", {
 })
 
 test_that("pois_pal_disc works", {
-  palette <- pois_pal_disc(palette = "discrete")(9)
+  palette <- pois_pal_disc(palette = "discrete")(10)
   expect_identical(
     palette,
-    pois_cols()[1:9] |> as.vector()
+    pois_cols()[1:10] |> as.vector()
   )
-  
-  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(9)
+
+  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
   expect_identical(
     palette,
-    pois_cols()[1:9] |> as.vector() %>% rev()
+    pois_cols()[1:10] |> as.vector() %>% rev()
     )
   
   expect_error(
@@ -143,8 +143,8 @@ test_that("test that 'order' arg in palette functions works", {
   )
   
   expect_error(
-    pois_pal_disc(order = 1:10)(10),
-    "All values of order must be within the range 1 - 9."
+    pois_pal_disc(order = 1:11)(11),
+    "All values of order must be within the range 1 - 10."
   )
   
 })

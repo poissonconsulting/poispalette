@@ -17,9 +17,13 @@ Imports:
   scales,
   rlang
 Suggests:
+    colorspace,
     covr,
     grDevices,
+    knitr,
+    rmarkdown,
     testthat
+VignetteBuilder: knitr
 URL: https://github.com/poissonconsulting/poispalette
 BugReports: https://github.com/poissonconsulting/poispalette/issues
 Encoding: UTF-8
