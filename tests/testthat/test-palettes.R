@@ -24,7 +24,7 @@ test_that("chk_hex works", {
   bad <- c("112233", "#FFEEDDD", "#FFEEDDX", "#112233")
   expect_error(
     chk_hex(bad),
-    "Ivalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
+    "Invalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
     )
 })
 
@@ -42,7 +42,7 @@ test_that("pois_pal_disc works", {
     )
   
   expect_error(
-    pois_pal_disc(palette = "not a palatte"),
+    pois_pal_disc(palette = "not a palette"),
     "Name of palette not found in `.pois_palettes`"
     )
   expect_error(
@@ -58,7 +58,7 @@ test_that("pois_pal_grad works", {
     )
   expect_error(
     pois_pal_grad(palette = c("not", "colours")),
-    "Ivalid hex codes detected: not, colours."
+    "Invalid hex codes detected: not, colours."
     )
   
   expect_error(
@@ -75,7 +75,19 @@ test_that("pois_pal_grad works", {
     pois_pal_grad("cool", n_steps = 4),
     c("#8EE7E6", "#00B4D8", "#0077B6", "#03045E")
   )
-  
+
+  expect_length(pois_pal_grad("cool", n_steps = 10), 10)
+  expect_length(pois_pal_grad("cool"), 256)
+
+  expect_error(
+    pois_pal_grad("cool", n_steps = 1),
+    "`n_steps` must be greater than 1"
+  )
+  expect_error(
+    pois_pal_grad("cool", n_steps = 2.5),
+    "`n_steps` must be a whole number"
+  )
+
 })
 
 test_that("pois_pal_custom works", {

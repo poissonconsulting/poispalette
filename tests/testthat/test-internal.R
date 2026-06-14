@@ -6,7 +6,7 @@ test_that("make_palette_subsetter works", {
 })
 
 test_that("chk_hex works", {
-  expect_error(chk_hex("#12345G"), "Ivalid hex codes detected: #12345G.")
+  expect_error(chk_hex("#12345G"), "Invalid hex codes detected: #12345G.")
 })
 
 test_that("handling of ... args", {

@@ -10,10 +10,6 @@
   "grey" = "#7D7D7D"
 )
 
-.pois_blues <- c(
-  "pois_blue1" = "#759dbe",
-  "pois_blue2" = "#abcbe7")
-
 .pois_palettes <- list(
   discrete = .pois_colours,
   cool = c("#8EE7E6", "#00B4D8", "#0077B6", "#03045E"),
