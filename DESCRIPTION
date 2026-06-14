@@ -10,16 +10,20 @@ Authors@R: c(
 Description: An R package for Poisson Consulting colour palettes.
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.4)
+    R (>= 4.1)
 Imports:
   chk,
   ggplot2 (>= 3.5.0),
-  grDevices,
   scales,
   rlang
-Suggests: 
+Suggests:
+    colorspace,
     covr,
+    grDevices,
+    knitr,
+    rmarkdown,
     testthat
+VignetteBuilder: knitr
 URL: https://github.com/poissonconsulting/poispalette
 BugReports: https://github.com/poissonconsulting/poispalette/issues
 Encoding: UTF-8

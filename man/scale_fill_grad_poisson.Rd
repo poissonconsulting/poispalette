@@ -24,6 +24,15 @@ of colour names from pois_cols}
 
 \item{n_col}{Number of colours to subset from the palette (optional)}
 }
+\value{
+A ggplot2 continuous scale.
+}
 \description{
 Gradient fill scale constructor for poisson colours
+}
+\examples{
+library(ggplot2)
+ggplot(points, aes(X, Y, fill = RandomX)) +
+  geom_point(shape = 21) +
+  scale_fill_grad_poisson(palette = "cool")
 }

@@ -8,7 +8,7 @@ test_that("pois_cols works", {
 })
 
 test_that("pois_pal works", {
-  expect_identical(pois_pal(), pois_cols()[1:9])
+  expect_identical(pois_pal(), pois_cols()[1:10])
   
   expect_error(
     pois_pal("not a pal"),
@@ -24,25 +24,25 @@ test_that("chk_hex works", {
   bad <- c("112233", "#FFEEDDD", "#FFEEDDX", "#112233")
   expect_error(
     chk_hex(bad),
-    "Ivalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
+    "Invalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
     )
 })
 
 test_that("pois_pal_disc works", {
-  palette <- pois_pal_disc(palette = "discrete")(9)
+  palette <- pois_pal_disc(palette = "discrete")(10)
   expect_identical(
     palette,
-    pois_cols()[1:9] |> as.vector()
+    pois_cols()[1:10] |> as.vector()
   )
-  
-  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(9)
+
+  palette <- pois_pal_disc(palette = "discrete", reverse = TRUE)(10)
   expect_identical(
     palette,
-    pois_cols()[1:9] |> as.vector() %>% rev()
+    pois_cols()[1:10] |> as.vector() %>% rev()
     )
   
   expect_error(
-    pois_pal_disc(palette = "not a palatte"),
+    pois_pal_disc(palette = "not a palette"),
     "Name of palette not found in `.pois_palettes`"
     )
   expect_error(
@@ -58,7 +58,7 @@ test_that("pois_pal_grad works", {
     )
   expect_error(
     pois_pal_grad(palette = c("not", "colours")),
-    "Ivalid hex codes detected: not, colours."
+    "Invalid hex codes detected: not, colours."
     )
   
   expect_error(
@@ -75,7 +75,19 @@ test_that("pois_pal_grad works", {
     pois_pal_grad("cool", n_steps = 4),
     c("#8EE7E6", "#00B4D8", "#0077B6", "#03045E")
   )
-  
+
+  expect_length(pois_pal_grad("cool", n_steps = 10), 10)
+  expect_length(pois_pal_grad("cool"), 256)
+
+  expect_error(
+    pois_pal_grad("cool", n_steps = 1),
+    "`n_steps` must be greater than 1"
+  )
+  expect_error(
+    pois_pal_grad("cool", n_steps = 2.5),
+    "`n_steps` must be a whole number"
+  )
+
 })
 
 test_that("pois_pal_custom works", {
@@ -131,8 +143,8 @@ test_that("test that 'order' arg in palette functions works", {
   )
   
   expect_error(
-    pois_pal_disc(order = 1:10)(10),
-    "All values of order must be within the range 1 - 9."
+    pois_pal_disc(order = 1:11)(11),
+    "All values of order must be within the range 1 - 10."
   )
   
 })
