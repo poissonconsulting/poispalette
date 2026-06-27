@@ -16,6 +16,10 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/colour-vision-deficiency.html">Comparing the palette under colour vision deficiency</a></li>
+  </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -34,14 +38,15 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="poispalette-001">poispalette 0.0.1<a class="anchor" aria-label="anchor" href="#poispalette-001"></a></h2>
-<ul><li>Remove dependancy on colorscale.</li>
+<ul><li>Add <code>crimson</code> (<code>#A7061E</code>) as a 10th discrete colour.</li>
+<li>Add a vignette comparing the palette under normal vision, deuteranopia, protanopia, and tritanopia.</li>
 <li>Sort, assign, and inject all … args for scale functions</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.0.9000" id="poispalette-0009000">poispalette 0.0.0.9000<a class="anchor" aria-label="anchor" href="#poispalette-0009000"></a></h2>
 <ul><li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
 <li><p>Split out palette and scale functions.</p></li>
-<li><p>Move position of … in scale funtions to match ggplot scale function behavior. fixes <a href="https://github.com/poissonconsulting/poispalette/issues/57" class="external-link">#57</a>.</p></li>
+<li><p>Move position of … in scale functions to match ggplot scale function behavior. fixes <a href="https://github.com/poissonconsulting/poispalette/issues/57" class="external-link">#57</a>.</p></li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

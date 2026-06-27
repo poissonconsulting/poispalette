@@ -18,8 +18,9 @@ pois_pal_grad(
 
 - palette:
 
-  Character name of palette in pois_palettes, See `pos_pal()` for
-  palette options.
+  Character name of palette in pois_palettes, See
+  [`pois_pal()`](https://poissonconsulting.github.io/poispalette/reference/pois_pal.md)
+  for palette options.
 
 - reverse:
 
@@ -32,3 +33,14 @@ pois_pal_grad(
 - n_col:
 
   Number of colours to subset from the palette (optional)
+
+## Value
+
+A character vector of `n_steps` interpolated hex colours.
+
+## Examples
+
+``` r
+pois_pal_grad("cool", n_steps = 4)
+#> [1] "#8EE7E6" "#00B4D8" "#0077B6" "#03045E"
+```

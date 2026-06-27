@@ -36,3 +36,16 @@ scale_colour_grad_poisson(
 - n_col:
 
   Number of colours to subset from the palette (optional)
+
+## Value
+
+A ggplot2 continuous scale.
+
+## Examples
+
+``` r
+library(ggplot2)
+ggplot(points, aes(X, Y, colour = RandomX)) +
+  geom_point() +
+  scale_colour_grad_poisson(palette = "cool")
+```

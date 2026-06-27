@@ -31,3 +31,16 @@ scale_colour_disc_poisson(
 - reverse:
 
   Boolean indicating whether the palette should be reversed
+
+## Value
+
+A ggplot2 discrete scale.
+
+## Examples
+
+``` r
+library(ggplot2)
+ggplot(points, aes(RandomX, RandomY, colour = ID)) +
+  geom_point() +
+  scale_colour_disc_poisson()
+```
