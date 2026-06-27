@@ -4,15 +4,21 @@
 #' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
+#' @return A ggplot2 discrete scale.
 #' @export
+#' @examples
+#' library(ggplot2)
+#' ggplot(points, aes(RandomX, RandomY, colour = ID)) +
+#'   geom_point() +
+#'   scale_colour_disc_poisson()
 scale_colour_disc_poisson <- function(
     ...,
     palette = getOption("poispalette.colours", "discrete"),
     order = NULL,
     reverse = FALSE
 ) {
-  
-  if(length(palette) == 1L & !all(vld_hex(palette))){
+
+  if(length(palette) == 1L && !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
@@ -34,8 +40,13 @@ scale_colour_disc_poisson <- function(
 #' @param order A numeric or character vector indicating the order of colours in the palette. Can be a subset.
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale()
-#'            
+#' @return A ggplot2 discrete scale.
 #' @export
+#' @examples
+#' library(ggplot2)
+#' ggplot(points, aes(RandomX, RandomY, fill = ID)) +
+#'   geom_point(shape = 21) +
+#'   scale_fill_disc_poisson()
 scale_fill_disc_poisson <- function(
     ...,
     palette = getOption("poispalette.colours", "discrete"),
@@ -43,7 +54,7 @@ scale_fill_disc_poisson <- function(
     reverse = FALSE
     ){
 
-  if(length(palette) == 1L & !all(vld_hex(palette))){
+  if(length(palette) == 1L && !all(vld_hex(palette))){
     pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
@@ -66,16 +77,22 @@ scale_fill_disc_poisson <- function(
 #' @param n_steps Number of steps in gradient
 #' @param n_col Number of colours to subset from the palette (optional)
 #' @param ... Additional arguments passed to scale_color_gradientn()
+#' @return A ggplot2 continuous scale.
 #' @export
+#' @examples
+#' library(ggplot2)
+#' ggplot(points, aes(X, Y, colour = RandomX)) +
+#'   geom_point() +
+#'   scale_colour_grad_poisson(palette = "cool")
 scale_colour_grad_poisson <- function(
-    ..., 
+    ...,
     palette = getOption("poispalette.gradient", "cool"),
     reverse = FALSE,
     n_steps = 256,
     n_col = getOption("poispalette.n_col", NULL)
     ){
-  
-  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
+
+  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_steps = n_steps, n_col = n_col)
   
   dot_args_user <- assign_dot_args(
     list(...), ggplot2::scale_color_gradientn, c("colours", "na.value", "space")
@@ -94,16 +111,22 @@ scale_colour_grad_poisson <- function(
 #' @param n_steps Number of steps in gradient
 #' @param n_col Number of colours to subset from the palette (optional)
 #' @param ... Additional arguments passed to scale_color_gradientn()
+#' @return A ggplot2 continuous scale.
 #' @export
+#' @examples
+#' library(ggplot2)
+#' ggplot(points, aes(X, Y, fill = RandomX)) +
+#'   geom_point(shape = 21) +
+#'   scale_fill_grad_poisson(palette = "cool")
 scale_fill_grad_poisson <- function(
-    ..., 
+    ...,
     palette = getOption("poispalette.gradient", "cool"),
     reverse = FALSE,
     n_steps = 256,
     n_col = getOption("poispalette.n_col", NULL)
     ){
-  
-  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_col = n_col)
+
+  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_steps = n_steps, n_col = n_col)
   
   dot_args_user <- assign_dot_args(
     list(...), ggplot2::scale_fill_gradientn, c("colours", "na.value")

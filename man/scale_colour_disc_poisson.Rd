@@ -21,6 +21,15 @@ scale_colour_disc_poisson(
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 }
+\value{
+A ggplot2 discrete scale.
+}
 \description{
 discrete colour scale constructor for poisson colours
+}
+\examples{
+library(ggplot2)
+ggplot(points, aes(RandomX, RandomY, colour = ID)) +
+  geom_point() +
+  scale_colour_disc_poisson()
 }

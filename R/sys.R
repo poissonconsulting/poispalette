@@ -7,12 +7,9 @@
   "green" = "#63BB42",
   "light blue" = "#90BDE5",
   "orchid" = "#D888CF",
-  "grey" = "#7D7D7D"
+  "grey" = "#7D7D7D",
+  "crimson" = "#A7061E"
 )
-
-.pois_blues <- c(
-  "pois_blue1" = "#759dbe",
-  "pois_blue2" = "#abcbe7")
 
 .pois_palettes <- list(
   discrete = .pois_colours,
