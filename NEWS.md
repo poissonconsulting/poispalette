@@ -2,9 +2,8 @@
 
 # poispalette 0.0.1
 
-  - Add `crimson` (`#A7061E`) as a 10th discrete colour, selected to maximise contrast with the existing colours under colour vision deficiency.
-  - Add a vignette comparing the palette under normal vision, deuteranopia, protanopia, and tritanopia.
-  - Remove dependency on colorscale.
+  - Add `crimson` (`#A7061E`) as a 10th discrete colour.
+  - Remove dependency on `colorscale`.
   - Sort, assign, and inject all ... args for scale functions
 
 # poispalette 0.0.0.9000
