@@ -4,7 +4,6 @@
 
   - Add `crimson` (`#A7061E`) as a 10th discrete colour.
   - Add a vignette comparing the palette under normal vision, deuteranopia, protanopia, and tritanopia.
-  - Remove dependency on `colorscale`.
   - Sort, assign, and inject all ... args for scale functions
 
 # poispalette 0.0.0.9000
