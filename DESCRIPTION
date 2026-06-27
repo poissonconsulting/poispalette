@@ -22,11 +22,14 @@ Imports:
     rlang,
     scales
 Suggests:
+    colorspace,
     covr,
     grDevices,
     knitr,
     rmarkdown,
     testthat
+VignetteBuilder: 
+    knitr
 Config/Needs/website: poissonconsulting/poissontemplate
 Config/roxygen2/version: 8.0.0.9000
 Encoding: UTF-8
