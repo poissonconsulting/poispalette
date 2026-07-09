@@ -13,7 +13,9 @@ pois_cols <- function(colours = NULL) {
   }
 
   chk_s3_class(colours, "character")
-  if (!all(colours %in% names(.pois_colours))) err("One or more values of colours not in .pois_colours")
+  if (!all(colours %in% names(.pois_colours))) {
+    err("One or more values of colours not in .pois_colours")
+  }
 
   .pois_colours[colours]
 }
@@ -34,7 +36,9 @@ pois_pal <- function(palette = NULL) {
 
   chk_s3_class(palette, "character")
   chk_scalar(palette)
-  if (!all(palette %in% names(.pois_palettes))) err("One or more values of palette not in .pois_palettes")
+  if (!all(palette %in% names(.pois_palettes))) {
+    err("One or more values of palette not in .pois_palettes")
+  }
 
   .pois_palettes[palette][[1]]
 }
@@ -55,28 +59,46 @@ pois_pal_disc <- function(palette = "discrete", order = NULL, reverse = FALSE) {
   chk_s3_class(palette, "character")
   chk_flag(reverse)
 
-  if (!length(palette) == 1L) err("Value of palette must be length 1")
-  if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
+  if (!length(palette) == 1L) {
+    err("Value of palette must be length 1")
+  }
+  if (!palette %in% names(.pois_palettes)) {
+    err("Name of palette not found in `.pois_palettes`")
+  }
 
   pal_name <- palette
   palette <- pois_pal(palette)
 
-  if(!is.null(order)){
+  if (!is.null(order)) {
     chkor_vld(vld_character(order), vld_numeric(order))
 
-    if(inherits(order, "character")) {
-      if(!all(order %in% names(palette))) err("All colours in `order` must match colour names in palette `", pal_name, "`.")
-      order <-  match(order, names(palette))
+    if (inherits(order, "character")) {
+      if (!all(order %in% names(palette))) {
+        err(
+          "All colours in `order` must match colour names in palette `",
+          pal_name,
+          "`."
+        )
+      }
+      order <- match(order, names(palette))
     }
 
     order <- as.integer(order)
-    if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
+    if (!all(order %in% 1:length(palette))) {
+      err(
+        "All values of order must be within the range 1 - ",
+        length(palette),
+        "."
+      )
+    }
 
     palette <- c(palette[order], palette)
     palette <- palette[unique(names(palette))]
   }
 
-  if (reverse) palette <- rev(palette)
+  if (reverse) {
+    palette <- rev(palette)
+  }
 
   make_palette_subsetter(palette)
 }
@@ -98,23 +120,32 @@ pois_pal_custom <- function(palette, order = NULL, reverse = FALSE) {
   chk_flag(reverse)
   chk_hex(palette)
 
-  if(!is.null(order)){
+  if (!is.null(order)) {
     chkor_vld(vld_character(order), vld_numeric(order))
 
-    if(inherits(order, "character")) {
+    if (inherits(order, "character")) {
       chk_hex(order)
-      if(!all(order %in% palette)) err("All colours in `order` must match hexadecimal codes in palette.")
-      order <-  match(order, palette)
-
+      if (!all(order %in% palette)) {
+        err("All colours in `order` must match hexadecimal codes in palette.")
+      }
+      order <- match(order, palette)
     }
 
     order <- as.integer(order)
-    if(!all(order %in% 1:length(palette))) err("All values of order must be within the range 1 - ", length(palette), ".")
+    if (!all(order %in% 1:length(palette))) {
+      err(
+        "All values of order must be within the range 1 - ",
+        length(palette),
+        "."
+      )
+    }
 
     palette <- unique(c(palette[order], palette))
   }
 
-  if (reverse) palette <- rev(palette)
+  if (reverse) {
+    palette <- rev(palette)
+  }
 
   make_palette_subsetter(palette)
 }
@@ -131,33 +162,42 @@ pois_pal_custom <- function(palette, order = NULL, reverse = FALSE) {
 #'
 #' @examples
 #' pois_pal_grad("cool", n_steps = 4)
-pois_pal_grad <- function(palette = "cool",
-                          reverse = FALSE,
-                          n_steps = 256,
-                          n_col = getOption("poispalette.n_col", NULL)){
+pois_pal_grad <- function(
+  palette = "cool",
+  reverse = FALSE,
+  n_steps = 256,
+  n_col = getOption("poispalette.n_col", NULL)
+) {
   chk_whole_number(n_steps)
   chk_gt(n_steps, 1)
   chk_s3_class(palette, "character")
   chk_flag(reverse)
 
-  if(length(palette) == 1L && !vld_hex(palette)) {
-    if (!palette %in% names(.pois_palettes)) err("Name of palette not found in `.pois_palettes`")
+  if (length(palette) == 1L && !vld_hex(palette)) {
+    if (!palette %in% names(.pois_palettes)) {
+      err("Name of palette not found in `.pois_palettes`")
+    }
     palette <- pois_pal(palette)
   } else {
     chk_hex(palette)
   }
 
-  if(!is.null(n_col)) {
+  if (!is.null(n_col)) {
     chk_whole_number(n_col)
-    if(n_col < 2) err("Argument `n_col` must be 2 or greater.")
-    if(n_col > length(palette)) err("Argument `n_col` is greater than number of colours in palette.")
-
-    palette <- palette[1:n_col]
+    if (n_col < 2) {
+      err("Argument `n_col` must be 2 or greater.")
+    }
+    if (n_col > length(palette)) {
+      err("Argument `n_col` is greater than number of colours in palette.")
     }
 
-  if (reverse) palette <- rev(palette)
+    palette <- palette[1:n_col]
+  }
+
+  if (reverse) {
+    palette <- rev(palette)
+  }
 
   palette_interpolator <- scales::as_continuous_pal(palette)
-  palette_interpolator(seq(0, 1, by = (1/(n_steps - 1))))
-
+  palette_interpolator(seq(0, 1, by = (1 / (n_steps - 1))))
 }
