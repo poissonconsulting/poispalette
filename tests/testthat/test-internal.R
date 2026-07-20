@@ -10,15 +10,28 @@ test_that("chk_hex works", {
 })
 
 test_that("handling of ... args", {
-  
   expect_identical(
-    get_formals(ggplot2::discrete_scale, negate = "super"), 
-    c("aesthetics", "palette", "name", "breaks", "minor_breaks", 
-"labels", "limits", "expand", "na.translate", "na.value", "drop", 
-"guide", "position", "fallback.palette", "call")
+    get_formals(ggplot2::discrete_scale, negate = "super"),
+    c(
+      "aesthetics",
+      "palette",
+      "name",
+      "breaks",
+      "minor_breaks",
+      "labels",
+      "limits",
+      "expand",
+      "na.translate",
+      "na.value",
+      "drop",
+      "guide",
+      "position",
+      "fallback.palette",
+      "call"
     )
+  )
   expect_error(get_formals(1, negate = "super"), "`fun` must be a function.")
-  
+
   expect_identical(
     assign_dot_args(
       list("name", labels = c("a", "b"), 1:2),
@@ -27,7 +40,7 @@ test_that("handling of ... args", {
     ),
     list(name = "name", labels = c("a", "b"), breaks = 1:2)
   )
-  
+
   expect_error(
     assign_dot_args(
       c("name"),
@@ -36,7 +49,7 @@ test_that("handling of ... args", {
     ),
     "`dot_args_user` must be a list."
   )
-  
+
   expect_error(
     assign_dot_args(
       list("name"),
@@ -45,5 +58,4 @@ test_that("handling of ... args", {
     ),
     "`args_negate` must be atomic."
   )
-  
 })

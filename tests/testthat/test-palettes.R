@@ -1,31 +1,35 @@
 test_that("pois_cols works", {
   expect_identical(pois_cols(), poispalette:::.pois_colours)
-  
-  expect_identical(pois_cols(c("black", "blue")), poispalette:::.pois_colours[1:2])
-  
-  expect_error(pois_cols(colours = "not a colour"),
-               "One or more values of colours not in .pois_colours")
+
+  expect_identical(
+    pois_cols(c("black", "blue")),
+    poispalette:::.pois_colours[1:2]
+  )
+
+  expect_error(
+    pois_cols(colours = "not a colour"),
+    "One or more values of colours not in .pois_colours"
+  )
 })
 
 test_that("pois_pal works", {
   expect_identical(pois_pal(), pois_cols()[1:10])
-  
+
   expect_error(
     pois_pal("not a pal"),
     "One or more values of palette not in .pois_palettes."
-    )
+  )
 })
 
 test_that("chk_hex works", {
-  
   good <- c("#112233", "#FFEEDD")
   expect_identical(chk_hex(good), good)
-  
+
   bad <- c("112233", "#FFEEDDD", "#FFEEDDX", "#112233")
   expect_error(
     chk_hex(bad),
     "Invalid hex codes detected: 112233, #FFEEDDD, #FFEEDDX."
-    )
+  )
 })
 
 test_that("pois_pal_disc works", {
@@ -39,38 +43,38 @@ test_that("pois_pal_disc works", {
   expect_identical(
     palette,
     pois_cols()[1:10] |> as.vector() %>% rev()
-    )
-  
+  )
+
   expect_error(
     pois_pal_disc(palette = "not a palette"),
     "Name of palette not found in `.pois_palettes`"
-    )
+  )
   expect_error(
     pois_pal_disc(palette = c("too", "many")),
     "Value of palette must be length 1"
-    )
+  )
 })
 
 test_that("pois_pal_grad works", {
   expect_error(
     pois_pal_grad(palette = "not a palette"),
     "Name of palette not found in `.pois_palettes`"
-    )
+  )
   expect_error(
     pois_pal_grad(palette = c("not", "colours")),
     "Invalid hex codes detected: not, colours."
-    )
-  
+  )
+
   expect_error(
     pois_pal_grad(palette = "cool", n_col = 10),
     "Argument `n_col` is greater than number of colours in palette."
   )
-  
+
   expect_error(
     pois_pal_grad(palette = "cool", n_col = 1),
     "Argument `n_col` must be 2 or greater."
   )
-  
+
   expect_identical(
     pois_pal_grad("cool", n_steps = 4),
     c("#8EE7E6", "#00B4D8", "#0077B6", "#03045E")
@@ -87,7 +91,6 @@ test_that("pois_pal_grad works", {
     pois_pal_grad("cool", n_steps = 2.5),
     "`n_steps` must be a whole number"
   )
-
 })
 
 test_that("pois_pal_custom works", {
@@ -96,37 +99,40 @@ test_that("pois_pal_custom works", {
     palette,
     c("#1E6091", "#D9ED92", "#99D98C")
   )
-  
-  palette <- pois_pal_custom(c("#1E6091", "#D9ED92", "#99D98C"), reverse = TRUE)(3)
+
+  palette <- pois_pal_custom(
+    c("#1E6091", "#D9ED92", "#99D98C"),
+    reverse = TRUE
+  )(3)
   expect_identical(
     palette,
     c("#99D98C", "#D9ED92", "#1E6091")
   )
-  
 })
 
 test_that("test that 'order' arg in palette functions works", {
- 
   palette <- pois_pal_disc(order = c("red", "blue", "yellow"))(4)
   expect_identical(
     palette,
     pois_cols()[c("red", "blue", "yellow", "black")] %>% as.character()
-    )
-  
-  
+  )
+
   palette <- pois_pal_disc(order = c(3, 2, 4))(4)
   expect_identical(
     palette,
     pois_cols()[c("red", "blue", "yellow", "black")] %>% as.character()
   )
-  
+
   custom_cols <- c("#03045e", "#04055f", "#04065f", "#050760", "#050861")
-  palette <- pois_pal_custom(custom_cols, order = c("#04065f", "#050760", "#050861"))(5)
+  palette <- pois_pal_custom(
+    custom_cols,
+    order = c("#04065f", "#050760", "#050861")
+  )(5)
   expect_identical(
     palette,
     c("#04065f", "#050760", "#050861", "#03045e", "#04055f")
   )
-  
+
   expect_error(
     pois_pal_disc(order = c("bed", "blue", "yellow")),
     "All colours in `order` must match colour names in palette `discrete`."
@@ -136,16 +142,14 @@ test_that("test that 'order' arg in palette functions works", {
     pois_pal_disc(order = c(TRUE)),
     "At least one of the following conditions must be met:"
   )
-  
+
   expect_error(
     pois_pal_disc(order = c(TRUE)),
     "At least one of the following conditions must be met:"
   )
-  
+
   expect_error(
     pois_pal_disc(order = 1:11)(11),
     "All values of order must be within the range 1 - 10."
   )
-  
 })
-

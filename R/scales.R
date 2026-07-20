@@ -12,26 +12,29 @@
 #'   geom_point() +
 #'   scale_colour_disc_poisson()
 scale_colour_disc_poisson <- function(
-    ...,
-    palette = getOption("poispalette.colours", "discrete"),
-    order = NULL,
-    reverse = FALSE
+  ...,
+  palette = getOption("poispalette.colours", "discrete"),
+  order = NULL,
+  reverse = FALSE
 ) {
-
-  if(length(palette) == 1L && !all(vld_hex(palette))){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
+  if (length(palette) == 1L && !all(vld_hex(palette))) {
+    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
-  
+
   dot_args_user <- assign_dot_args(
-    list(...), ggplot2::discrete_scale, c("aesthetics", "palette", "na.value")
+    list(...),
+    ggplot2::discrete_scale,
+    c("aesthetics", "palette", "na.value")
   )
-  
+
   rlang::inject(ggplot2::discrete_scale(
-    aesthetics = "colour", palette = pal, na.value = .na_colour, !!!dot_args_user 
+    aesthetics = "colour",
+    palette = pal,
+    na.value = .na_colour,
+    !!!dot_args_user
   ))
-  
 }
 
 #' discrete fill scale constructor for poisson colours
@@ -48,30 +51,34 @@ scale_colour_disc_poisson <- function(
 #'   geom_point(shape = 21) +
 #'   scale_fill_disc_poisson()
 scale_fill_disc_poisson <- function(
-    ...,
-    palette = getOption("poispalette.colours", "discrete"),
-    order = NULL,
-    reverse = FALSE
-    ){
-
-  if(length(palette) == 1L && !all(vld_hex(palette))){
-    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)    
+  ...,
+  palette = getOption("poispalette.colours", "discrete"),
+  order = NULL,
+  reverse = FALSE
+) {
+  if (length(palette) == 1L && !all(vld_hex(palette))) {
+    pal <- pois_pal_disc(palette = palette, reverse = reverse, order = order)
   } else {
     pal <- pois_pal_custom(palette = palette, reverse = reverse)
   }
-  
+
   dot_args_user <- assign_dot_args(
-    list(...), ggplot2::discrete_scale, c("aesthetics", "palette", "na.value")
+    list(...),
+    ggplot2::discrete_scale,
+    c("aesthetics", "palette", "na.value")
   )
-  
+
   rlang::inject(ggplot2::discrete_scale(
-    aesthetics = "fill", palette = pal, na.value = .na_colour, !!!dot_args_user
-    ))
+    aesthetics = "fill",
+    palette = pal,
+    na.value = .na_colour,
+    !!!dot_args_user
+  ))
 }
 
 #' gradient colour scale constructor for poisson colours
 #'
-#' @param palette Character name of palette in pois_palettes, or selection 
+#' @param palette Character name of palette in pois_palettes, or selection
 #' of colour names from pois_cols
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param n_steps Number of steps in gradient
@@ -85,27 +92,35 @@ scale_fill_disc_poisson <- function(
 #'   geom_point() +
 #'   scale_colour_grad_poisson(palette = "cool")
 scale_colour_grad_poisson <- function(
-    ...,
-    palette = getOption("poispalette.gradient", "cool"),
-    reverse = FALSE,
-    n_steps = 256,
-    n_col = getOption("poispalette.n_col", NULL)
-    ){
-
-  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_steps = n_steps, n_col = n_col)
-  
-  dot_args_user <- assign_dot_args(
-    list(...), ggplot2::scale_color_gradientn, c("colours", "na.value", "space")
+  ...,
+  palette = getOption("poispalette.gradient", "cool"),
+  reverse = FALSE,
+  n_steps = 256,
+  n_col = getOption("poispalette.n_col", NULL)
+) {
+  pal <- pois_pal_grad(
+    palette = palette,
+    reverse = reverse,
+    n_steps = n_steps,
+    n_col = n_col
   )
-  
+
+  dot_args_user <- assign_dot_args(
+    list(...),
+    ggplot2::scale_color_gradientn,
+    c("colours", "na.value", "space")
+  )
+
   rlang::inject(ggplot2::scale_color_gradientn(
-    colours = pal, na.value = .na_colour, !!!dot_args_user
-    ))
+    colours = pal,
+    na.value = .na_colour,
+    !!!dot_args_user
+  ))
 }
 
 #' Gradient fill scale constructor for poisson colours
 #'
-#' @param palette Character name of palette in pois_palettes, or selection 
+#' @param palette Character name of palette in pois_palettes, or selection
 #' of colour names from pois_cols
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param n_steps Number of steps in gradient
@@ -119,22 +134,30 @@ scale_colour_grad_poisson <- function(
 #'   geom_point(shape = 21) +
 #'   scale_fill_grad_poisson(palette = "cool")
 scale_fill_grad_poisson <- function(
-    ...,
-    palette = getOption("poispalette.gradient", "cool"),
-    reverse = FALSE,
-    n_steps = 256,
-    n_col = getOption("poispalette.n_col", NULL)
-    ){
-
-  pal <- pois_pal_grad(palette = palette, reverse = reverse, n_steps = n_steps, n_col = n_col)
-  
-  dot_args_user <- assign_dot_args(
-    list(...), ggplot2::scale_fill_gradientn, c("colours", "na.value")
+  ...,
+  palette = getOption("poispalette.gradient", "cool"),
+  reverse = FALSE,
+  n_steps = 256,
+  n_col = getOption("poispalette.n_col", NULL)
+) {
+  pal <- pois_pal_grad(
+    palette = palette,
+    reverse = reverse,
+    n_steps = n_steps,
+    n_col = n_col
   )
-  
+
+  dot_args_user <- assign_dot_args(
+    list(...),
+    ggplot2::scale_fill_gradientn,
+    c("colours", "na.value")
+  )
+
   rlang::inject(ggplot2::scale_fill_gradientn(
-    colours = pal, na.value = .na_colour, !!!dot_args_user
-    ))
+    colours = pal,
+    na.value = .na_colour,
+    !!!dot_args_user
+  ))
 }
 
 #' @export
