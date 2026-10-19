@@ -25,10 +25,10 @@ pois_cols()
 ```
 
 CVD is simulated with `colorspace`, which provides
-[`deutan()`](https://colorspace.R-Forge.R-project.org/reference/simulate_cvd.html),
-[`protan()`](https://colorspace.R-Forge.R-project.org/reference/simulate_cvd.html),
+[`deutan()`](https://zeileis.codeberg.page/colorspace/reference/simulate_cvd.html),
+[`protan()`](https://zeileis.codeberg.page/colorspace/reference/simulate_cvd.html),
 and
-[`tritan()`](https://colorspace.R-Forge.R-project.org/reference/simulate_cvd.html)
+[`tritan()`](https://zeileis.codeberg.page/colorspace/reference/simulate_cvd.html)
 to approximate how colours appear under deuteranopia, protanopia, and
 tritanopia. The palette is rendered as swatches, one row per vision
 type.
